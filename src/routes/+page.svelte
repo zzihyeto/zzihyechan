@@ -1,7 +1,5 @@
-<h1>You are invited to Anthony & Emily's Wedding!</h1>
+<script lang="ts">
+	import TopCover from '../components/top-cover.svelte';
+</script>
 
-<style lang="scss">
-	h1 {
-		color: red;
-	}
-</style>
+<TopCover />
