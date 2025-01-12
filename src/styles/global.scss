@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Noto Serif KR", serif;
+  src: url('/static/fonts/NotoSerifKR.ttf') format('tff');
+}
+
+.kr {
+  font-family: "Noto Serif KR", serif;
+}
+
 *,
 *::before,
 *::after {
@@ -38,3 +47,4 @@ textarea,
 select {
   font: inherit;
 }
+

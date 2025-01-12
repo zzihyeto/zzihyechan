@@ -27,5 +27,8 @@
 		"typescript": "^5.7.2",
 		"vite": "^5.4.11",
 		"wrangler": "^3.91.0"
+	},
+	"dependencies": {
+		"svelte-i18n": "^4.0.1"
 	}
 }
