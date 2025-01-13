@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "Noto Serif KR", serif;
-  src: url('/static/fonts/NotoSerifKR.ttf') format('tff');
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
 
 .kr {
   font-family: "Noto Serif KR", serif;
@@ -30,6 +27,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: $bg-color-1;
 }
 
 img,
@@ -47,4 +45,3 @@ textarea,
 select {
   font: inherit;
 }
-

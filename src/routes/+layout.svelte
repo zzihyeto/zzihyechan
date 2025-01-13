@@ -6,4 +6,9 @@
 
 {@render children()}
 
-<style lang="scss"></style>
+<style lang="scss">
+	:global(section) {
+		max-width: 450px;
+		margin: auto;
+	}
+</style>
