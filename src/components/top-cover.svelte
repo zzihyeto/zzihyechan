@@ -1,5 +1,7 @@
 <script lang="ts">
 	import coverImage from '$lib/assets/cover-image.jpg';
+	import { _ } from 'svelte-i18n';
+	import { localeStore } from '../i18n.svelte';
 </script>
 
 <section class="invitation-main">
@@ -9,19 +11,24 @@
 		</div>
 		<div class="vertical-text-container">
 			<div class="korean-text-container">
-				<span class="getting-married kr">결혼합니다</span>
+				{#if localeStore.isKr}
+					<span class="getting-married-kr">결혼합니다</span>
+				{:else}
+					<span class="getting-married-en">Invitation to our wedding</span>
+				{/if}
 			</div>
 		</div>
 	</div>
 	<div class="description kr">
-    <div class="names">
-      <p>신랑 박건희</p>
-      <p>신부 피아영</p>
-    </div>
-    <div class="time-location">
-      <p>2025년 6월 7일 (토) 4시</p>
-      <p>Irvine, CA</p>
-    </div>
+		<div class="names">
+			<p>신랑 박건희</p>
+			<p>신부 피아영</p>
+		</div>
+		<div class="time-location">
+			<p>2025년 6월 7일 (토) 4시</p>
+			<p>Irvine, CA</p>
+		</div>
+	</div>
 </section>
 
 <style lang="scss">
@@ -47,32 +54,40 @@
 	.vertical-text-container {
 		padding-top: 3.6rem;
 
-    .korean-text-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+		.korean-text-container {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
 	}
 
-	.getting-married {
+	.getting-married-kr {
 		writing-mode: vertical-lr;
 		text-orientation: upright;
-		letter-spacing: 1.4rem;
-		font-size: 1.8rem;
+		letter-spacing: 1.8rem;
+		font-size: 2rem;
 	}
 
-  .description {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 32px 16px;
-    font-size: 1.5rem;
+	.getting-married-en {
+		letter-spacing: 0.4rem;
+		word-spacing: 1rem;
+		font-size: 2.4rem;
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+	}
 
-    .names,
-    .time-location {
-      display: flex;
-      flex-direction: column;
-      row-gap: 4px;
-    }
-  }
+	.description {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 32px 16px;
+		font-size: 1.5rem;
+
+		.names,
+		.time-location {
+			display: flex;
+			flex-direction: column;
+			row-gap: 4px;
+		}
+	}
 </style>
