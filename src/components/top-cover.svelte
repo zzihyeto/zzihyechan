@@ -8,6 +8,7 @@
 
 	function setSectionHeight() {
 		sectionHeight = `${window.innerHeight}px`;
+		console.log(`setting sectionHeight" ${sectionHeight}`);
 	}
 
 	if (browser && window.matchMedia('(max-width: 1024px)')) {
@@ -16,7 +17,7 @@
 	}
 </script>
 
-<section style:min-height={sectionHeight} class="invitation-main">
+<section style:min-height={sectionHeight} class="top-cover">
 	<div class="top">
 		<div class="cover-image-container">
 			<img class="cover-image" src={coverImage} alt="Wedding cover" />
@@ -26,33 +27,35 @@
 				{#if localeStore.isKr}
 					<span class="getting-married-kr kr">결혼합니다</span>
 				{:else}
-					<span class="getting-married-en">Invitation to our wedding</span>
+					<span class="getting-married-en">We're getting married</span>
 				{/if}
 			</div>
 		</div>
 	</div>
-	<div class="description kr">
-		<div class="names">
-			<p>신랑 박건희</p>
-			<p>신부 피아영</p>
-		</div>
-		<div class="time-location">
-			<p>2025년 6월 7일 (토) 4시</p>
-			<p>Irvine, CA</p>
+	<div class="bottom">
+		<div class="description kr">
+			<div class="names">
+				<p>신랑 박건희</p>
+				<p>신부 피아영</p>
+			</div>
+			<div class="time-location">
+				<p>2025년 6월 7일 (토) 4시</p>
+				<p>Irvine, CA</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style lang="scss">
-	.invitation-main {
+	.top-cover {
+		display: grid;
+		grid-template-rows: 8.2fr 1.8fr;
 		width: 100%;
-		height: 100vh;
 		background-color: $white;
 		font-size: 1.2rem;
 	}
 
 	.top {
-		height: 83%;
 		display: grid;
 		grid-template-columns: 8.5fr 1.5fr;
 	}
