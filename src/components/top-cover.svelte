@@ -1,13 +1,12 @@
 <script lang="ts">
-	import coverImage from '$lib/assets/cover-image.jpg';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 
-	let sectionHeight = $state(600);
+	let sectionHeight = $state(700);
 
 	function setSectionHeight() {
-		sectionHeight = window.outerHeight;
+		sectionHeight = window.outerHeight < 800 ? window.outerHeight : 800;
 		console.log(`setting sectionHeight: ${sectionHeight}`);
 	}
 
@@ -24,7 +23,6 @@
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
-		height: 100svh;
 		width: 100%;
 		font-size: 1.2rem;
 	}

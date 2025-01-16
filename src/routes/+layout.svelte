@@ -12,7 +12,7 @@
 
 <style lang="scss">
 	:global(section) {
-		max-width: 480px;
+		max-width: 680px;
 		margin: auto;
 	}
 </style>
