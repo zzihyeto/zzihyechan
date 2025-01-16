@@ -6,7 +6,7 @@ register('en', () => import('./locales/en.json'));
 console.log('getLocaleFromQueryString()', getLocaleFromQueryString('lang'));
 
 init({
-	fallbackLocale: 'en',
+	fallbackLocale: 'kr',
 	initialLocale: getLocaleFromQueryString('lang')
 });
 

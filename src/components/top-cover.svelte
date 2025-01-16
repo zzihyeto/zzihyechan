@@ -2,9 +2,21 @@
 	import coverImage from '$lib/assets/cover-image.jpg';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
+	import { browser } from '$app/environment';
+
+	let sectionHeight = $state('');
+
+	function setSectionHeight() {
+		sectionHeight = `${window.innerHeight}px`;
+	}
+
+	if (browser && window.matchMedia('(max-width: 1024px)')) {
+		setSectionHeight();
+		window.addEventListener('resize', setSectionHeight);
+	}
 </script>
 
-<section class="invitation-main">
+<section style:min-height={sectionHeight} class="invitation-main">
 	<div class="top">
 		<div class="cover-image-container">
 			<img class="cover-image" src={coverImage} alt="Wedding cover" />
@@ -12,7 +24,7 @@
 		<div class="vertical-text-container">
 			<div class="korean-text-container">
 				{#if localeStore.isKr}
-					<span class="getting-married-kr">결혼합니다</span>
+					<span class="getting-married-kr kr">결혼합니다</span>
 				{:else}
 					<span class="getting-married-en">Invitation to our wedding</span>
 				{/if}
@@ -40,7 +52,7 @@
 	}
 
 	.top {
-		height: 82vh;
+		height: 83%;
 		display: grid;
 		grid-template-columns: 8.5fr 1.5fr;
 	}
