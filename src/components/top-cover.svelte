@@ -23,7 +23,7 @@
 		background-image: url('/src/lib/assets/cover-image.jpg');
 		background-repeat: no-repeat;
 		background-position-x: center;
-		background-position-y: 55%;
+		background-position-y: 60%;
 		background-size: cover;
 	}
 </style>
