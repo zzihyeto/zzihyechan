@@ -48,8 +48,6 @@
 	section.top-cover {
 		height: 100svh;
 		width: 100%;
-		display: grid;
-		grid-template-rows: 8.2fr 1.8fr;
 		background-color: $white;
 		font-size: 1.2rem;
 	}
@@ -60,7 +58,7 @@
 	}
 
 	.cover-image {
-		height: 100%;
+		height: 80svh;
 		width: auto;
 		object-fit: cover;
 	}
