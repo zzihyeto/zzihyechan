@@ -17,7 +17,7 @@
 	}
 </script>
 
-<section style:min-height={sectionHeight} class="top-cover">
+<section class="top-cover">
 	<div class="top">
 		<div class="cover-image-container">
 			<img class="cover-image" src={coverImage} alt="Wedding cover" />
@@ -47,10 +47,11 @@
 </section>
 
 <style lang="scss">
-	.top-cover {
+	section.top-cover {
+		height: 100svh;
+		width: 100%;
 		display: grid;
 		grid-template-rows: 8.2fr 1.8fr;
-		width: 100%;
 		background-color: $white;
 		font-size: 1.2rem;
 	}
