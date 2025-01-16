@@ -46,7 +46,7 @@
 
 <style lang="scss">
 	section.top-cover {
-		height: 100svh;
+		height: 100lvh;
 		width: 100%;
 		background-color: $white;
 		font-size: 1.2rem;
@@ -58,7 +58,7 @@
 	}
 
 	.cover-image {
-		height: 80svh;
+		height: 80lvh;
 		width: auto;
 		object-fit: cover;
 	}
