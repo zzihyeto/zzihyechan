@@ -4,7 +4,7 @@
 	import { browser } from '$app/environment';
 
 	const maxSectionHeight = 1000;
-	let sectionHeight: number | undefined = $state(undefined);
+	let sectionHeight = $state(750);
 
 	function setSectionHeight() {
 		sectionHeight = window.outerHeight < maxSectionHeight ? window.outerHeight : maxSectionHeight;
