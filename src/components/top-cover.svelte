@@ -3,10 +3,11 @@
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 
-	let sectionHeight = $state(700);
+	const maxSectionHeight = 1000;
+	let sectionHeight: number | undefined = $state(undefined);
 
 	function setSectionHeight() {
-		sectionHeight = window.outerHeight < 800 ? window.outerHeight : 800;
+		sectionHeight = window.outerHeight < maxSectionHeight ? window.outerHeight : maxSectionHeight;
 		console.log(`setting sectionHeight: ${sectionHeight}`);
 	}
 
@@ -21,9 +22,9 @@
 	section.top-cover {
 		background-image: url('/src/lib/assets/cover-image.jpg');
 		background-repeat: no-repeat;
-		background-position: center center;
+		background-position-x: center;
+		background-position-y: 55%;
 		background-size: cover;
-		width: 100%;
-		font-size: 1.2rem;
+		min-height: 800px;
 	}
 </style>
