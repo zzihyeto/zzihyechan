@@ -25,6 +25,5 @@
 		background-position-x: center;
 		background-position-y: 55%;
 		background-size: cover;
-		min-height: 800px;
 	}
 </style>
