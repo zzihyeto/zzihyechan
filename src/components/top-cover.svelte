@@ -20,7 +20,7 @@
 	<div class="top">
 		<img
 			class="cover-image"
-			style:height={`${sectionHeight * 0.84}px`}
+			style:height={`${sectionHeight * 0.8}px`}
 			src={coverImage}
 			alt="Wedding cover"
 		/>
@@ -58,7 +58,7 @@
 
 	.top {
 		display: grid;
-		grid-template-columns: 8.6fr 1.4fr;
+		grid-template-columns: 8.5fr 1.5fr;
 	}
 
 	.cover-image {
