@@ -19,9 +19,7 @@
 
 <section class="top-cover">
 	<div class="top">
-		<div class="cover-image-container">
-			<img class="cover-image" src={coverImage} alt="Wedding cover" />
-		</div>
+		<img class="cover-image" src={coverImage} alt="Wedding cover" />
 		<div class="vertical-text-container">
 			<div class="korean-text-container">
 				{#if localeStore.isKr}
