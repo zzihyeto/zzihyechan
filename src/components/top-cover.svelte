@@ -4,22 +4,26 @@
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 
-	let sectionHeight = $state('');
+	let sectionHeight = $state(0);
 
 	function setSectionHeight() {
-		sectionHeight = `${window.innerHeight}px`;
-		console.log(`setting sectionHeight" ${sectionHeight}`);
+		sectionHeight = window.innerHeight;
+		console.log(`setting sectionHeight: ${sectionHeight}`);
 	}
 
 	if (browser && window.matchMedia('(max-width: 1024px)')) {
 		setSectionHeight();
-		window.addEventListener('resize', setSectionHeight);
 	}
 </script>
 
-<section class="top-cover">
+<section style:height={`${sectionHeight}px`} class="top-cover">
 	<div class="top">
-		<img class="cover-image" src={coverImage} alt="Wedding cover" />
+		<img
+			class="cover-image"
+			style:height={`${sectionHeight * 0.84}px`}
+			src={coverImage}
+			alt="Wedding cover"
+		/>
 		<div class="vertical-text-container">
 			<div class="korean-text-container">
 				{#if localeStore.isKr}
