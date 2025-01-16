@@ -46,7 +46,7 @@
 
 <style lang="scss">
 	section.top-cover {
-		height: 100lvh;
+		height: 100svh;
 		width: 100%;
 		background-color: $white;
 		font-size: 1.2rem;
@@ -54,11 +54,11 @@
 
 	.top {
 		display: grid;
-		grid-template-columns: 8.5fr 1.5fr;
+		grid-template-columns: 8.6fr 1.4fr;
 	}
 
 	.cover-image {
-		height: 80lvh;
+		height: 84svh;
 		width: auto;
 		object-fit: cover;
 	}
@@ -77,13 +77,13 @@
 		writing-mode: vertical-lr;
 		text-orientation: upright;
 		letter-spacing: 1.8rem;
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 
 	.getting-married-en {
-		letter-spacing: 0.4rem;
+		letter-spacing: 0.3rem;
 		word-spacing: 1rem;
-		font-size: 2.4rem;
+		font-size: 1.8rem;
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
 	}
