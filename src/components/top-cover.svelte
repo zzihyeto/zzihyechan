@@ -3,11 +3,11 @@
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 
-	const maxSectionHeight = 1000;
-	let sectionHeight = $state(750);
+	const maxSectionHeight = 900;
+	let sectionHeight = $state(maxSectionHeight);
 
 	function setSectionHeight() {
-		sectionHeight = window.outerHeight < maxSectionHeight ? window.outerHeight : maxSectionHeight;
+		sectionHeight = window.innerHeight < maxSectionHeight ? window.innerHeight : maxSectionHeight;
 		console.log(`setting sectionHeight: ${sectionHeight}`);
 	}
 
