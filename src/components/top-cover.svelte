@@ -17,30 +17,35 @@
 	}
 </script>
 
-<div class="confetti-area">
-	<Confetti
-		x={[-5, 5]}
-		y={[0, 0.1]}
-		delay={[500, 2000]}
-		infinite
-		duration={5000}
-		amount={70}
-		fallDistance={`${sectionHeight}px`}
-	/>
-</div>
-<section style:height={`${sectionHeight}px`} class="top-cover"></section>
+<section style:height={`${sectionHeight}px`} class="top-cover">
+	<div class="confetti-area">
+		<Confetti
+			x={[-5, 5]}
+			y={[0, 0.1]}
+			delay={[500, 2000]}
+			infinite
+			duration={5000}
+			amount={70}
+			fallDistance={`${sectionHeight}px`}
+		/>
+	</div>
+</section>
 
 <style lang="scss">
-	.confetti-area {
-		position: relative;
-		top: -50px;
-		left: 0;
-	}
-
 	section.top-cover {
+		position: relative;
 		background-image: url('/src/lib/assets/cover-image.jpg');
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
+	}
+	.confetti-area {
+		position: absolute;
+		top: -50px;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+		pointer-events: none;
 	}
 </style>
