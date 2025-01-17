@@ -14,19 +14,20 @@
 		"cf-typegen": "wrangler types && mv worker-configuration.d.ts src/"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20241127.0",
+		"@cloudflare/workers-types": "^4.20250109.0",
 		"@sveltejs/adapter-auto": "^3.3.1",
-		"@sveltejs/adapter-cloudflare": "^4.7.4",
-		"@sveltejs/kit": "^2.8.5",
-		"@sveltejs/vite-plugin-svelte": "^4.0.2",
-		"prettier": "^3.4.1",
-		"prettier-plugin-svelte": "^3.3.2",
-		"sass": "^1.81.0",
-		"svelte": "^5.2.10",
-		"svelte-check": "^4.1.0",
-		"typescript": "^5.7.2",
+		"@sveltejs/adapter-cloudflare": "^4.9.0",
+		"@sveltejs/kit": "^2.15.3",
+		"@sveltejs/vite-plugin-svelte": "^4.0.4",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"sass": "^1.83.4",
+		"svelte": "^5.18.0",
+		"svelte-check": "^4.1.4",
+		"svelte-confetti": "^2.2.0",
+		"typescript": "^5.7.3",
 		"vite": "^5.4.11",
-		"wrangler": "^3.91.0"
+		"wrangler": "^3.103.1"
 	},
 	"dependencies": {
 		"svelte-i18n": "^4.0.1"
