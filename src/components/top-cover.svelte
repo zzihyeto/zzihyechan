@@ -22,8 +22,7 @@
 	section.top-cover {
 		background-image: url('/src/lib/assets/cover-image.jpg');
 		background-repeat: no-repeat;
-		background-position-x: center;
-		background-position-y: 60%;
+		background-position: center center;
 		background-size: cover;
 	}
 </style>
