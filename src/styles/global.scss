@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+KR:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Serif+KR:wght@200..900&family=Sacramento&display=swap');
 
 .kr {
 	font-family: 'Noto Serif KR', serif;
@@ -7,6 +7,13 @@
 
 .en {
 	font-family: 'Cormorant Garamond', serif;
+	font-weight: 400;
+	font-style: normal;
+	color: $font-color-default;
+}
+
+.en-sacramento {
+	font-family: 'Sacramento', serif;
 	font-weight: 400;
 	font-style: normal;
 	color: $font-color-default;
