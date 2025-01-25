@@ -29,6 +29,12 @@
 			fallDistance={`${sectionHeight}px`}
 		/>
 	</div>
+
+	<div class="our-names-box">
+		<span class="our-names kr">박건희</span>
+		<span class="our-names kr">그리고</span>
+		<span class="our-names kr">피아영</span>
+	</div>
 </section>
 
 <style lang="scss">
@@ -47,5 +53,17 @@
 		width: 100vw;
 		overflow: hidden;
 		pointer-events: none;
+	}
+	.our-names-box {
+		position: absolute;
+		top: 5%;
+		left: 15%;
+
+		span.our-names {
+			font-size: 1.7rem;
+			display: block;
+			letter-spacing: 1rem;
+			line-height: 3rem;
+		}
 	}
 </style>

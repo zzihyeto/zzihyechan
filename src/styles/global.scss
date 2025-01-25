@@ -2,12 +2,14 @@
 
 .kr {
 	font-family: 'Noto Serif KR', serif;
+	color: $font-color-default;
 }
 
 .en {
-		font-family: "Cormorant Garamond", serif;
-			font-weight: 400;
-			font-style: normal;
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 400;
+	font-style: normal;
+	color: $font-color-default;
 }
 
 *,
