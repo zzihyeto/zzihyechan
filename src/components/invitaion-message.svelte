@@ -28,10 +28,10 @@
 				</p>
 			{:else}
 				<p class="main-body-text en">
-					You've been with us through so many unforgettable moments&mdash;college days, camping, and
-					celebrating life together. Please join us for one of the biggest milestones yet! We'd be
-					overjoyed to have you witness and celebrate our wedding as we embark on this new chapter
-					together.
+					You've been with us through so many unforgettable moments&mdash;college days, camping
+					trips, and celebrating life together. Please join us for one of the biggest milestones
+					yet! We'd be overjoyed to have you witness and celebrate our wedding as we embark on this
+					new chapter together.
 				</p>
 
 				<div class="ending-text-box">
@@ -110,7 +110,7 @@
 				}
 				&.en {
 					line-height: 3rem;
-					font-size: 1.7rem;
+					font-size: 1.8rem;
 				}
 			}
 
@@ -121,7 +121,7 @@
 
 			.ending-text {
 				text-align: right;
-				font-size: 1.7rem;
+				font-size: 1.8rem;
 			}
 
 			.bride-groom-family-description {
