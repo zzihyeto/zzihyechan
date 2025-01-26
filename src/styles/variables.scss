@@ -4,3 +4,13 @@ $bg-color-1: #EFEAE4;
 $bg-color-2: #F5F3F1;
 $font-color-default: #525252;
 $font-color-heading: #B99493;
+
+$mobile-sm: "(max-width: 380px)";
+$mobile-md: "(min-width: 381px) and (max-width: 410px)";
+$mobile-lg: "(min-width: 411px)";
+
+@mixin for-range($query) {
+  @media #{$query} {
+    @content;
+  }
+}

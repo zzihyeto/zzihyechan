@@ -40,10 +40,10 @@
 		<span class="our-names en-sacramento">Anthony & Emily</span>
 	</div>
 
-	<div class="event-date-and-place-box">
+	<div class="event-date-and-place-box" class:kr-locale={localeStore.isKr}>
 		{#if localeStore.isKr}
 			<span class="event-date-and-time kr">2025년 6월 7일 (토) 4시</span>
-			<span class="event-place kr">Irvine, CA</span>
+			<span class="event-place kr">Irvine, California</span>
 		{:else}
 			<span class="event-date-and-time en">6.7.2025 Sat 4:00 pm</span>
 			<span class="event-place en">Irvine, CA</span>
@@ -74,32 +74,70 @@
 		left: 15%;
 
 		span.our-names {
-			font-size: 1.7rem;
 			display: block;
-			letter-spacing: 1rem;
-			line-height: 3rem;
+
+			@include for-range($mobile-sm) {
+				font-size: 15px;
+				letter-spacing: 10px;
+				line-height: 30px;
+			}
+
+			@include for-range($mobile-md) {
+				font-size: 16px;
+				letter-spacing: 12px;
+				line-height: 32px;
+			}
+
+			@include for-range($mobile-lg) {
+				font-size: 18px;
+				letter-spacing: 14px;
+				line-height: 34px;
+			}
 		}
 	}
 
 	.our-names-en-box {
 		width: 100%;
 		position: absolute;
-		bottom: 17%;
+		bottom: 12%;
 		display: flex;
 		justify-content: center;
+
+		@include for-range($mobile-sm) {
+			bottom: 13%;
+		}
+
+		@include for-range($mobile-md) {
+			bottom: 12%;
+		}
+
+		@include for-range($mobile-lg) {
+			bottom: 11%;
+		}
 
 		span.our-names {
 			display: block;
 			color: $white;
-			font-size: 3.4rem;
-			word-spacing: 0.5rem;
+			word-spacing: 5px;
+
+			@include for-range($mobile-sm) {
+				font-size: 34px;
+			}
+
+			@include for-range($mobile-md) {
+				font-size: 36px;
+			}
+
+			@include for-range($mobile-lg) {
+				font-size: 40px;
+			}
 		}
 	}
 
 	.event-date-and-place-box {
 		width: 100%;
 		position: absolute;
-		bottom: 7%;
+		bottom: 3%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -110,12 +148,36 @@
 			color: $white;
 
 			&.kr {
-				font-size: 1.4rem;
+				@include for-range($mobile-sm) {
+					font-size: 15px;
+				}
+
+				@include for-range($mobile-md) {
+					font-size: 16px;
+				}
+
+				@include for-range($mobile-lg) {
+					font-size: 17px;
+				}
 			}
 
 			&.en {
-				font-size: 2rem;
+				@include for-range($mobile-sm) {
+					font-size: 20px;
+				}
+
+				@include for-range($mobile-md) {
+					font-size: 21px;
+				}
+
+				@include for-range($mobile-lg) {
+					font-size: 22px;
+				}
 			}
+		}
+
+		span.event-date-and-time.kr {
+			margin-bottom: 4px;
 		}
 	}
 </style>

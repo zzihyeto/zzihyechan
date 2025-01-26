@@ -63,27 +63,27 @@
 <style lang="scss">
 	.invitaion-message {
 		width: 100%;
-		font-size: 1.5rem;
+		font-size: 15px;
 
 		&__top {
-			padding: 8rem 5rem;
+			padding: 80px 50px;
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			row-gap: 6rem;
+			row-gap: 60px;
 
 			.wedding-date {
 				color: $primary-color;
-				letter-spacing: 0.1rem;
-				margin-bottom: 0.4rem;
+				letter-spacing: 1px;
+				margin-bottom: 4px;
 
 				&.kr {
-					font-size: 1.7rem;
+					font-size: 17px;
 				}
 
 				&.en {
-					font-size: 2.4rem;
+					font-size: 24px;
 					font-weight: 700;
 				}
 			}
@@ -93,11 +93,11 @@
 				font-weight: 500;
 
 				&.kr {
-					font-size: 1.6rem;
+					font-size: 16px;
 				}
 
 				&.en {
-					font-size: 2rem;
+					font-size: 20px;
 					font-weight: 600;
 				}
 			}
@@ -106,22 +106,22 @@
 				text-align: left;
 
 				&.kr {
-					line-height: 3.2rem;
+					line-height: 32px;
 				}
 				&.en {
-					line-height: 3rem;
-					font-size: 1.8rem;
+					line-height: 30px;
+					font-size: 18px;
 				}
 			}
 
 			.ending-text-box {
-				margin-top: 2rem;
-				padding-right: 2.5rem;
+				margin-top: 20px;
+				padding-right: 25px;
 			}
 
 			.ending-text {
 				text-align: right;
-				font-size: 1.8rem;
+				font-size: 18px;
 			}
 
 			.bride-groom-family-description {
@@ -141,7 +141,7 @@
 					.daughter {
 						display: flex;
 						justify-content: center;
-						font-size: 1.2rem;
+						font-size: 12px;
 						color: $primary-color;
 					}
 				}
