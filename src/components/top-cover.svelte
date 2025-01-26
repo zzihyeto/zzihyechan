@@ -62,7 +62,7 @@
 	.confetti-area {
 		position: absolute;
 		top: -50px;
-		left: 0;
+		left: -50px;
 		height: 100vh;
 		width: 100vw;
 		overflow: hidden;

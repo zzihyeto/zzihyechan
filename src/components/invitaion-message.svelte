@@ -23,7 +23,7 @@
 		<div>
 			{#if localeStore.isKr}
 				<p class="main-body-text kr">
-					평생을 같이하고 싶은 사람을 만났습니다. 서로 아껴주고 이해하며 사랑을베풀며 살고싶습니다.
+					평생을 같이하고 싶은 사람을 만났습니다. 서로 아껴주고 이해하며 사랑을 베풀며 살고싶습니다.
 					저희 약속 위에 따뜻한 격려로 축복해 주셔서 힘찬 출발의 디딤이 되어 주십시오.
 				</p>
 			{:else}
@@ -79,7 +79,17 @@
 				margin-bottom: 4px;
 
 				&.kr {
-					font-size: 17px;
+					@include for-range($mobile-sm) {
+						font-size: 17px;
+					}
+
+					@include for-range($mobile-md) {
+						font-size: 18px;
+					}
+
+					@include for-range($mobile-lg) {
+						font-size: 19px;
+					}
 				}
 
 				&.en {
@@ -93,7 +103,17 @@
 				font-weight: 500;
 
 				&.kr {
-					font-size: 16px;
+					@include for-range($mobile-sm) {
+						font-size: 16px;
+					}
+
+					@include for-range($mobile-md) {
+						font-size: 17px;
+					}
+
+					@include for-range($mobile-lg) {
+						font-size: 18px;
+					}
 				}
 
 				&.en {
@@ -107,10 +127,33 @@
 
 				&.kr {
 					line-height: 32px;
+					@include for-range($mobile-sm) {
+						font-size: 14px;
+					}
+
+					@include for-range($mobile-md) {
+						font-size: 15px;
+					}
+
+					@include for-range($mobile-lg) {
+						font-size: 16px;
+					}
 				}
 				&.en {
-					line-height: 30px;
-					font-size: 18px;
+					@include for-range($mobile-sm) {
+						line-height: 30px;
+						font-size: 18px;
+					}
+
+					@include for-range($mobile-md) {
+						line-height: 32px;
+						font-size: 19px;
+					}
+
+					@include for-range($mobile-lg) {
+						line-height: 34px;
+						font-size: 20px;
+					}
 				}
 			}
 
@@ -121,11 +164,22 @@
 
 			.ending-text {
 				text-align: right;
-				font-size: 18px;
+				@include for-range($mobile-sm) {
+					font-size: 18px;
+				}
+
+				@include for-range($mobile-md) {
+					font-size: 19px;
+				}
+
+				@include for-range($mobile-lg) {
+					font-size: 20px;
+				}
 			}
 
 			.bride-groom-family-description {
 				p {
+					color: $font-color-default;
 					display: grid;
 					grid-template-columns: repeat(5, 1fr);
 					column-gap: 12px;
