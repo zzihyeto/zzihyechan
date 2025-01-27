@@ -8,8 +8,8 @@
     </svg>`;
 </script>
 
-<section class="invitaion-message">
-	<div class="invitaion-message__top">
+<section class="inviatation-message">
+	<div class="inviatation-message__top">
 		<div>
 			{#if localeStore.isKr}
 				<h2 class="wedding-date kr">2025.6.7</h2>
@@ -23,8 +23,10 @@
 		<div>
 			{#if localeStore.isKr}
 				<p class="main-body-text kr">
-					평생을 같이하고 싶은 사람을 만났습니다. 서로 아껴주고 이해하며 사랑을 베풀며 살고싶습니다.
-					저희 약속 위에 따뜻한 격려로 축복해 주셔서 힘찬 출발의 디딤이 되어 주십시오.
+					지금까지 함께해 주시며 나누었던 소중한 순간들이 저희에게 큰 기쁨과 힘이 되었습니다. 이제
+					저희 인생의 또 하나의 특별한 순간을 맞이하며, 소중한 여러분을 이 자리에 초대하고 싶습니다.
+					서로에게 큰 사랑과 믿음으로 새로운 여정을 시작하려 합니다. 따뜻한 축복과 응원의 마음을
+					전해 주시면 더없이 기쁠 것 같아요. 그날 뵙기를 손꼽아 기다리고 있겠습니다!
 				</p>
 			{:else}
 				<p class="main-body-text en">
@@ -55,13 +57,13 @@
 			</div>
 		{/if}
 	</div>
-	<div class="invitaion-message__bottom">
+	<div class="inviatation-message__bottom">
 		<img src={invitationMessage} alt="Wedding Invitation" />
 	</div>
 </section>
 
 <style lang="scss">
-	.invitaion-message {
+	.inviatation-message {
 		width: 100%;
 		font-size: 15px;
 
@@ -184,6 +186,7 @@
 					grid-template-columns: repeat(5, 1fr);
 					column-gap: 12px;
 					margin-bottom: 20px;
+					align-items: center;
 
 					.name-divider {
 						display: flex;
