@@ -6,10 +6,12 @@
 		event?.preventDefault();
 
 		const addressText = venueAddress.textContent;
-		navigator.clipboard
-			.writeText(addressText)
-			.then(() => alert('Copied the address :)'))
-			.catch((error) => console.log('error'));
+		if (addressText) {
+			navigator.clipboard
+				.writeText(addressText)
+				.then(() => alert('Copied the address :)'))
+				.catch((error) => console.log('error'));
+		}
 	};
 </script>
 
@@ -29,8 +31,8 @@
 	.wedding-location {
 		position: relative;
 		background-color: $bg-color-1;
-		padding-block: 50px;
-		padding-inline: 60px;
+		padding-top: 50px;
+		padding-bottom: 30px;
 
 		.wave-cover-top-img {
 			position: absolute;
@@ -47,7 +49,8 @@
 		}
 
 		.location {
-			font-size: 18px;
+			font-size: 1.1rem;
+			line-height: 1.3;
 			text-align: center;
 		}
 
