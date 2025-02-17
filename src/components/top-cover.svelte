@@ -70,74 +70,36 @@
 	}
 	.our-names-kr-box {
 		position: absolute;
-		top: 5%;
-		left: 15%;
+		top: 2em;
+		left: 4em;
 
 		span.our-names {
 			display: block;
-
-			@include for-range($mobile-sm) {
-				font-size: 15px;
-				letter-spacing: 10px;
-				line-height: 30px;
-			}
-
-			@include for-range($mobile-md) {
-				font-size: 16px;
-				letter-spacing: 12px;
-				line-height: 32px;
-			}
-
-			@include for-range($mobile-lg) {
-				font-size: 18px;
-				letter-spacing: 14px;
-				line-height: 34px;
-			}
+			font-size: 1rem;
+			letter-spacing: 0.7em;
+			line-height: 2;
 		}
 	}
 
 	.our-names-en-box {
 		width: 100%;
 		position: absolute;
-		bottom: 12%;
+		bottom: 5.5em;
 		display: flex;
 		justify-content: center;
-
-		@include for-range($mobile-sm) {
-			bottom: 13%;
-		}
-
-		@include for-range($mobile-md) {
-			bottom: 12%;
-		}
-
-		@include for-range($mobile-lg) {
-			bottom: 11%;
-		}
 
 		span.our-names {
 			display: block;
 			color: $white;
 			word-spacing: 5px;
-
-			@include for-range($mobile-sm) {
-				font-size: 34px;
-			}
-
-			@include for-range($mobile-md) {
-				font-size: 36px;
-			}
-
-			@include for-range($mobile-lg) {
-				font-size: 40px;
-			}
+			font-size: 2.2rem;
 		}
 	}
 
 	.event-date-and-place-box {
 		width: 100%;
 		position: absolute;
-		bottom: 3%;
+		bottom: 1.5em;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -148,36 +110,16 @@
 			color: $white;
 
 			&.kr {
-				@include for-range($mobile-sm) {
-					font-size: 15px;
-				}
-
-				@include for-range($mobile-md) {
-					font-size: 16px;
-				}
-
-				@include for-range($mobile-lg) {
-					font-size: 17px;
-				}
+				font-size: 1rem;
 			}
 
 			&.en {
-				@include for-range($mobile-sm) {
-					font-size: 20px;
-				}
-
-				@include for-range($mobile-md) {
-					font-size: 21px;
-				}
-
-				@include for-range($mobile-lg) {
-					font-size: 22px;
-				}
+				font-size: 1.4rem;
 			}
 		}
 
 		span.event-date-and-time.kr {
-			margin-bottom: 4px;
+			margin-bottom: 0.4em;
 		}
 	}
 </style>
