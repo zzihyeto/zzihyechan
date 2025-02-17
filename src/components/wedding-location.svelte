@@ -25,6 +25,8 @@
 			108 Lamplighter, Irvine, CA 92620
 		</a>
 	</div>
+
+  <p class="attribution en">made with ♡ by Anthony & Emily</p>
 </section>
 
 <style lang="scss">
@@ -32,7 +34,7 @@
 		position: relative;
 		background-color: $bg-color-1;
 		padding-top: 50px;
-		padding-bottom: 30px;
+
 
 		.wave-cover-top-img {
 			position: absolute;
@@ -57,5 +59,13 @@
 		.copy-address {
 			cursor: pointer;
 		}
+
+    .attribution {
+      font-family: "Raleway", serif;
+      padding-top: 40px;
+      padding-bottom: 8px;
+      text-align: center;
+      font-size: .95rem;
+    }
 	}
 </style>
