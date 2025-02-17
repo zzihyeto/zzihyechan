@@ -19,6 +19,18 @@
 	color: $font-color-default;
 }
 
+:root {
+	font-size: 0.9375em; // 15px when default is 16px
+
+	@include for-range($mobile-md) {
+		font-size: 1em;
+	}
+
+	@include for-range($mobile-lg) {
+		font-size: 1.0625em; // 17px when default is 16px
+	}
+}
+
 *,
 *::before,
 *::after {

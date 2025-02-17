@@ -8,8 +8,8 @@
     </svg>`;
 </script>
 
-<section class="inviatation-message">
-	<div class="inviatation-message__top">
+<section class="invitation-message">
+	<div class="invitation-message__top">
 		<div>
 			{#if localeStore.isKr}
 				<h2 class="wedding-date kr">2025.6.7</h2>
@@ -57,45 +57,34 @@
 			</div>
 		{/if}
 	</div>
-	<div class="inviatation-message__bottom">
+	<div class="invitation-message__bottom">
 		<img src={invitationMessage} alt="Wedding Invitation" />
 	</div>
 </section>
 
 <style lang="scss">
-	.inviatation-message {
+	.invitation-message {
 		width: 100%;
-		font-size: 15px;
+		font-size: 1rem;
 
 		&__top {
-			padding: 80px 50px;
-			height: 100%;
+			padding: 4.5em 3.5em;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			row-gap: 60px;
+			row-gap: 3em;
 
 			.wedding-date {
 				color: $primary-color;
 				letter-spacing: 1px;
-				margin-bottom: 4px;
+				margin-bottom: 0.3em;
 
 				&.kr {
-					@include for-range($mobile-sm) {
-						font-size: 17px;
-					}
-
-					@include for-range($mobile-md) {
-						font-size: 18px;
-					}
-
-					@include for-range($mobile-lg) {
-						font-size: 19px;
-					}
+					font-size: 1.1rem;
 				}
 
 				&.en {
-					font-size: 24px;
+					font-size: 1.5rem;
 					font-weight: 700;
 				}
 			}
@@ -105,21 +94,11 @@
 				font-weight: 500;
 
 				&.kr {
-					@include for-range($mobile-sm) {
-						font-size: 16px;
-					}
-
-					@include for-range($mobile-md) {
-						font-size: 17px;
-					}
-
-					@include for-range($mobile-lg) {
-						font-size: 18px;
-					}
+					font-size: 1rem;
 				}
 
 				&.en {
-					font-size: 20px;
+					font-size: 1.2rem;
 					font-weight: 600;
 				}
 			}
@@ -128,40 +107,17 @@
 				text-align: left;
 
 				&.kr {
-					line-height: 32px;
-					@include for-range($mobile-sm) {
-						font-size: 14px;
-					}
-
-					@include for-range($mobile-md) {
-						font-size: 15px;
-					}
-
-					@include for-range($mobile-lg) {
-						font-size: 16px;
-					}
+					line-height: 2.3em;
+					font-size: 0.9rem;
 				}
 				&.en {
-					@include for-range($mobile-sm) {
-						line-height: 30px;
-						font-size: 18px;
-					}
-
-					@include for-range($mobile-md) {
-						line-height: 32px;
-						font-size: 19px;
-					}
-
-					@include for-range($mobile-lg) {
-						line-height: 34px;
-						font-size: 20px;
-					}
+					line-height: 1.8em;
+					font-size: 1.1rem;
 				}
 			}
 
 			.ending-text-box {
-				margin-top: 20px;
-				padding-right: 25px;
+				margin-top: 2em;
 			}
 
 			.ending-text {
