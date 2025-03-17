@@ -2,22 +2,13 @@
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { LoaderCircle } from '@lucide/svelte';
+	import { enhance } from '$app/forms';
 
-	let fullName = $state<string | undefined>(undefined);
+	let fullName = $state<string | null>(null);
+	let rsvp = $state<'yes' | 'no' | null>(null);
 	let submitting = $state(false);
-	let rsvp = $state<'yes' | 'no' | undefined>(undefined);
 
-	function send(e: SubmitEvent) {
-		e.preventDefault();
-		const formData = new FormData(e.target as HTMLFormElement);
-		console.log(formData);
-
-		submitting = true;
-		setTimeout(() => {
-			fullName = undefined;
-			submitting = false;
-		}, 1000);
-	}
+	$inspect(submitting, fullName, rsvp);
 </script>
 
 <section class="rsvp">
@@ -26,15 +17,34 @@
 		{$_('rsvp.reply_by')}
 	</p>
 
-	<form method="POST" class="rsvp-form" onsubmit={(e) => send(e)}>
+	<form
+		class="rsvp-form"
+		method="POST"
+		action="?/rsvp"
+		use:enhance={() => {
+			submitting = true;
+			return ({ update }) => {
+				update().finally(() => {
+					submitting = false;
+				});
+			};
+		}}
+	>
 		<input
-			class="full-name"
+			class="fullname"
+			name="fullname"
 			class:kr={localeStore.isKr}
 			class:en={localeStore.isEn}
 			bind:value={fullName}
 			placeholder={$_('rsvp.fullname_placeholder')}
 		/>
-		<button class="send" type="submit" class:en={localeStore.isEn} disabled={submitting}>
+		<button
+			class="send"
+			type="submit"
+			class:kr={localeStore.isKr}
+			class:en={localeStore.isEn}
+			disabled={submitting}
+		>
 			{#if submitting}
 				<div class="spinning">
 					<LoaderCircle />
@@ -81,7 +91,7 @@
 		margin-top: 4em;
 	}
 
-	input.full-name {
+	input.fullname {
 		width: 100%;
 		height: 2.5em;
 		border: 1px solid #eaeaea;

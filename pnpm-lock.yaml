@@ -11,6 +11,9 @@ importers:
       '@lucide/svelte':
         specifier: ^0.482.0
         version: 0.482.0(svelte@5.23.0)
+      nodemailer:
+        specifier: ^6.10.0
+        version: 6.10.0
       svelte-i18n:
         specifier: ^4.0.1
         version: 4.0.1(svelte@5.23.0)
@@ -30,6 +33,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.4
         version: 4.0.4(svelte@5.23.0)(vite@5.4.14(@types/node@22.10.1)(sass-embedded@1.81.0)(sass@1.85.1))
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -1067,6 +1073,9 @@ packages:
   '@types/node@22.10.1':
     resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
+  '@types/nodemailer@6.4.17':
+    resolution: {integrity: sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==}
+
   acorn-walk@8.3.2:
     resolution: {integrity: sha512-cjkyv4OtNCIeqhHrfS81QWXoCBPExR/J62oyEqepVw8WaQeSqpW2uhuLPh1m9eWhDuOo/jUXVTlifvesOWp/4A==}
     engines: {node: '>=0.4.0'}
@@ -1366,6 +1375,10 @@ packages:
 
   node-addon-api@7.1.1:
     resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
+
+  nodemailer@6.10.0:
+    resolution: {integrity: sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==}
+    engines: {node: '>=6.0.0'}
 
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
@@ -2403,7 +2416,10 @@ snapshots:
   '@types/node@22.10.1':
     dependencies:
       undici-types: 6.20.0
-    optional: true
+
+  '@types/nodemailer@6.4.17':
+    dependencies:
+      '@types/node': 22.10.1
 
   acorn-walk@8.3.2: {}
 
@@ -2779,6 +2795,8 @@ snapshots:
   node-addon-api@7.1.1:
     optional: true
 
+  nodemailer@6.10.0: {}
+
   ohash@2.0.11: {}
 
   path-to-regexp@6.3.0: {}
@@ -3096,8 +3114,7 @@ snapshots:
 
   ufo@1.5.4: {}
 
-  undici-types@6.20.0:
-    optional: true
+  undici-types@6.20.0: {}
 
   undici@5.28.5:
     dependencies:

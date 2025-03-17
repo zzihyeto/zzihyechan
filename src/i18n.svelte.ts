@@ -3,8 +3,6 @@ import { getLocaleFromQueryString, init, isLoading, locale, register } from 'sve
 register('kr', () => import('./locales/kr.json'));
 register('en', () => import('./locales/en.json'));
 
-console.log('getLocaleFromQueryString()', getLocaleFromQueryString('lang'));
-
 init({
 	fallbackLocale: 'kr',
 	initialLocale: getLocaleFromQueryString('lang')
@@ -19,12 +17,10 @@ class LocaleStore {
 	constructor() {
 		isLoading.subscribe((isLoading) => {
 			this.isLoading = isLoading;
-			console.log(`isLocaleLoading: ${this.isLoading}`);
 		});
 
 		locale.subscribe((locale) => {
 			this.locale = locale;
-			console.log(`currentLocale: ${this.locale}`);
 		});
 	}
 }

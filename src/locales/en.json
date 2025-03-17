@@ -2,7 +2,7 @@
 	"rsvp": {
 		"title": "RSVP",
 		"reply_by": "Please kindly reply by May 22nd.",
-		"fullname_placeholder": "Full Name (English)",
+		"fullname_placeholder": "Full name",
 		"send": "SEND"
 	}
 }
