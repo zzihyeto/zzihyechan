@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 	import { Confetti } from 'svelte-confetti';
