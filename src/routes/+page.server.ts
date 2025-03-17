@@ -1,6 +1,6 @@
 import type { Actions } from './$types';
 import nodemailer from 'nodemailer';
-import { EMAIL_USER, EMAIL_PASS, EMAIL_TO_USER } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 export const actions = {
 	rsvp: async ({ request }) => {
@@ -14,14 +14,14 @@ export const actions = {
 			port: 465,
 			secure: true,
 			auth: {
-				user: EMAIL_USER,
-				pass: EMAIL_PASS
+				user: env.EMAIL_USER,
+				pass: env.EMAIL_PASS
 			}
 		});
 
 		await transporter.sendMail({
-			from: EMAIL_USER,
-			to: EMAIL_TO_USER,
+			from: env.EMAIL_USER,
+			to: env.EMAIL_TO_USER,
 			subject: '[Wedding Invitation] RSVP Submission',
 			text: `Name: ${name}\n`
 		});
