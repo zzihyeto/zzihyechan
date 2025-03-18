@@ -1,30 +1,26 @@
 import type { Actions } from './$types';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import { env } from '$env/dynamic/private';
+
+const resend = new Resend(env.RESEND_API_KEY);
 
 export const actions = {
 	rsvp: async ({ request }) => {
-		const data = await request.formData();
-		const name = data.get('fullname');
+		const formData = await request.formData();
+		const name = formData.get('fullname');
 		console.log('rsvp() - name', name);
 
-		const transporter = nodemailer.createTransport({
-			service: 'Gmail',
-			host: 'smtp.gmail.com',
-			port: 465,
-			secure: true,
-			auth: {
-				user: env.EMAIL_USER,
-				pass: env.EMAIL_PASS
-			}
+		const { data, error } = await resend.emails.send({
+			from: env.FROM_EMAIL,
+			to: env.TO_EMAIL,
+			subject: `[Wedding Invitation] RSVP - ${name}`,
+			text: `YES`
 		});
 
-		await transporter.sendMail({
-			from: env.EMAIL_USER,
-			to: env.EMAIL_TO_USER,
-			subject: '[Wedding Invitation] RSVP Submission',
-			text: `Name: ${name}\n`
-		});
+		console.log('send() - respond', data, error);
+		if (error) {
+			return { success: false };
+		}
 
 		return { success: true };
 	}
