@@ -3,6 +3,9 @@
 		"title": "RSVP",
 		"reply_by": "Please kindly reply by May 22nd.",
 		"fullname_placeholder": "Full name",
-		"send": "SEND"
+		"send": "SEND",
+		"name_validation_error": "Please enter your full name.",
+		"email_error": "Something went wrong. Please try again.",
+		"email_success": "You're all set. Thank you!"
 	}
 }

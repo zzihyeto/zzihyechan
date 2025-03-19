@@ -4,6 +4,8 @@
 	import { LoaderCircle } from '@lucide/svelte';
 	import { enhance } from '$app/forms';
 
+	let { form } = $props();
+
 	let fullName = $state<string | null>(null);
 	let rsvp = $state<'yes' | 'no' | null>(null);
 	let submitting = $state(false);
@@ -12,8 +14,8 @@
 </script>
 
 <section class="rsvp">
-	<h2 class="title" class:kr={localeStore.isKr} class:en={localeStore.isEn}>{$_('rsvp.title')}</h2>
-	<p class="reply-by" class:kr={localeStore.isKr} class:en={localeStore.isEn}>
+	<h2 class="title {localeStore.locale}">{$_('rsvp.title')}</h2>
+	<p class="reply-by {localeStore.locale}">
 		{$_('rsvp.reply_by')}
 	</p>
 
@@ -31,20 +33,12 @@
 		}}
 	>
 		<input
-			class="fullname"
+			class="fullname {localeStore.locale}"
 			name="fullname"
-			class:kr={localeStore.isKr}
-			class:en={localeStore.isEn}
-			bind:value={fullName}
+			value={form?.name ?? ''}
 			placeholder={$_('rsvp.fullname_placeholder')}
 		/>
-		<button
-			class="send"
-			type="submit"
-			class:kr={localeStore.isKr}
-			class:en={localeStore.isEn}
-			disabled={submitting}
-		>
+		<button class="send {localeStore.locale}" type="submit" disabled={submitting}>
 			{#if submitting}
 				<div class="spinning">
 					<LoaderCircle />
@@ -54,6 +48,23 @@
 			{/if}
 		</button>
 	</form>
+	<div class="submit-message">
+		{#if form?.success}
+			<p class="success {localeStore.locale}">
+				{$_('rsvp.email_success')}
+			</p>
+		{/if}
+		{#if form?.emailError}
+			<p class="error {localeStore.locale}">
+				{$_('rsvp.email_error')}
+			</p>
+		{/if}
+		{#if form?.nameValidationError}
+			<p class="error {localeStore.locale}">
+				{$_('rsvp.name_validation_error')}
+			</p>
+		{/if}
+	</div>
 </section>
 
 <style lang="scss">
@@ -138,5 +149,25 @@
 
 	.spinning {
 		animation: spin 1s linear infinite;
+	}
+
+	.submit-message {
+		margin-top: 0.5em;
+
+		.kr {
+			font-size: 0.9rem;
+		}
+
+		.en {
+			font-size: 1.1rem;
+		}
+
+		p.success {
+			color: $green-1;
+		}
+
+		p.error {
+			color: $red-1;
+		}
 	}
 </style>
