@@ -107,10 +107,16 @@
 	}
 
 	input.fullname {
+		padding: 0.4em 0.8em;
 		width: 100%;
 		height: 2.5em;
-		border: 1px solid #eaeaea;
+		border: 1px solid $white-2;
 		border-radius: 4px;
+
+		&:active,
+		&:focus {
+			@extend .input-focused;
+		}
 	}
 
 	.select-container {

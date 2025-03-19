@@ -73,7 +73,7 @@ select {
 	font: inherit;
 }
 
-input[type=text] {
+input[type='text'] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -81,8 +81,8 @@ input[type=text] {
 }
 
 button,
-input[type="submit"],
-input[type="reset"] {
+input[type='submit'],
+input[type='reset'] {
 	background: none;
 	color: inherit;
 	border: none;

@@ -2,10 +2,12 @@ $primary-color: #B99493;
 $primary-color-light: #d2bdbc;
 $primary-color-dark: #8e5f5d;
 $white: #FFF;
+$white-2: #eaeaea;
 $bg-color-1: #EFEAE4;
 $bg-color-2: #F5F3F1;
 $green-1: #06bb6a;
 $red-1: #f25757;
+$blue-1: rgb(114, 187, 223);
 $font-color-default: #525252;
 $font-color-heading: #B99493;
 
@@ -17,4 +19,10 @@ $mobile-lg: "(min-width: 411px)";
   @media #{$query} {
     @content;
   }
+}
+
+.input-focused {
+  outline: solid;
+  outline-width: 3px;
+  outline-color: $blue-1;
 }
