@@ -31,6 +31,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.482.0",
+		"melt": "^0.17.8",
 		"resend": "^4.1.2",
 		"svelte-i18n": "^4.0.1"
 	}

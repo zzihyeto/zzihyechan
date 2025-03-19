@@ -3,6 +3,7 @@
 	import { localeStore } from '../i18n.svelte';
 	import { LoaderCircle } from '@lucide/svelte';
 	import { enhance } from '$app/forms';
+	import RsvpSelect from './rsvp-select.svelte';
 
 	let { form } = $props();
 
@@ -38,6 +39,9 @@
 			value={form?.name ?? ''}
 			placeholder={$_('rsvp.fullname_placeholder')}
 		/>
+		<div class="select-container">
+			<RsvpSelect />
+		</div>
 		<button class="send {localeStore.locale}" type="submit" disabled={submitting}>
 			{#if submitting}
 				<div class="spinning">
@@ -107,6 +111,10 @@
 		height: 2.5em;
 		border: 1px solid #eaeaea;
 		border-radius: 4px;
+	}
+
+	.select-container {
+		margin-top: 1em;
 	}
 
 	button.send {
