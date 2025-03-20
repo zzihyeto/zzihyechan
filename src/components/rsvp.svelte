@@ -8,7 +8,7 @@
 	let { form } = $props();
 
 	let fullName = $state<string | null>(null);
-	let rsvp = $state<'yes' | 'no' | null>(null);
+	let rsvp = $state<string | null>(null);
 	let submitting = $state(false);
 
 	$inspect(submitting, fullName, rsvp);
@@ -94,7 +94,7 @@
 		margin-top: 0.5em;
 
 		&.kr {
-			font-size: 1rem;
+			font-size: 0.95rem;
 		}
 
 		&.en {
@@ -112,10 +112,14 @@
 		height: 2.5em;
 		border: 1px solid $white-2;
 		border-radius: 4px;
+		letter-spacing: 0.02em;
 
 		&:active,
 		&:focus {
 			@extend .input-focused;
+		}
+		&::placeholder {
+			color: $font-color-light;
 		}
 	}
 
@@ -127,12 +131,13 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 1em;
+		margin-top: 2em;
 		height: 2.5em;
 		width: 100%;
 		background-color: $primary-color;
 		border-radius: 4px;
 		color: $white;
+		letter-spacing: 0.05em;
 
 		&[disabled] {
 			background-color: $primary-color-light;

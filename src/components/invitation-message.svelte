@@ -37,8 +37,8 @@
 				</p>
 
 				<div class="ending-text-box">
-					<p class="ending-text en">Love,</p>
-					<p class="ending-text en">Emily and Anthony</p>
+					<p class="ending-text en">with love</p>
+					<p class="ending-text en">Emily & Anthony</p>
 				</div>
 			{/if}
 		</div>

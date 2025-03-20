@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="our-names-en-box">
-		<span class="our-names en-sacramento">Anthony & Emily</span>
+		<span class="our-names en-sacramento">Emily & Anthony</span>
 	</div>
 
 	<div class="event-date-and-place-box" class:kr-locale={localeStore.isKr}>

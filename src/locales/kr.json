@@ -1,7 +1,7 @@
 {
 	"rsvp": {
 		"title": "참석여부 회신",
-		"reply_by": "5월 22일까지 답변 부탁드립니다.",
+		"reply_by": "5월 16일까지 답변 부탁드립니다.",
 		"fullname_placeholder": "영문 성함",
 		"send": "보내기",
 		"name_validation_error": "성함을 입력해주세요.",
@@ -9,8 +9,8 @@
 		"email_success": "참석여부를 보냈습니다. 감사합니다 :)",
 		"select": {
 			"select_attendance": "참석여부 선택",
-			"yes": "참석합니다!",
-			"no": "참석 못 합니다."
+			"yes": "참석합니다.",
+			"no": "참석하지 못합니다."
 		}
 	}
 }
