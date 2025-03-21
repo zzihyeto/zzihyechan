@@ -4,7 +4,8 @@
 		"reply_by": "Please kindly reply by May 16th.",
 		"fullname_placeholder": "Full name (English)",
 		"send": "SEND",
-		"name_validation_error": "Please enter your full name.",
+		"missing_name_error": "Please enter your full name.",
+		"missing_rsvp_error": "Please select your RSVP.",
 		"email_error": "Something went wrong. Please try again.",
 		"email_success": "You're all set. Thank you!",
 		"select": {

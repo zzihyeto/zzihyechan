@@ -9,20 +9,23 @@ export const actions = {
 	rsvp: async ({ request }) => {
 		const formData = await request.formData();
 		const name = formData.get('fullname')?.toString().trim();
-		console.log('rsvp() - name', name);
+		const rsvp = formData.get('rsvp')?.toString();
 
 		if (!name) {
-			return fail(400, { nameValidationError: true });
+			return fail(400, { missingName: true });
+		}
+
+		if (!rsvp) {
+			return fail(400, { missingRsvp: true });
 		}
 
 		const { data, error } = await resend.emails.send({
 			from: env.FROM_EMAIL,
 			to: env.TO_EMAIL,
 			subject: `[Wedding Invitation] RSVP - ${name}`,
-			text: `YES`
+			text: `${rsvp}`
 		});
 
-		console.log('send() - respond', data, error);
 		if (error) {
 			return fail(400, { name, emailError: true });
 		}

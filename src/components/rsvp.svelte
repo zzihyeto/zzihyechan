@@ -7,11 +7,8 @@
 
 	let { form } = $props();
 
-	let fullName = $state<string | null>(null);
 	let rsvp = $state<string | null>(null);
 	let submitting = $state(false);
-
-	$inspect(submitting, fullName, rsvp);
 </script>
 
 <section class="rsvp">
@@ -24,11 +21,15 @@
 		class="rsvp-form"
 		method="POST"
 		action="?/rsvp"
-		use:enhance={() => {
+		use:enhance={({ formData }) => {
 			submitting = true;
-			return ({ update }) => {
-				update().finally(() => {
+			formData.append('rsvp', rsvp ?? '');
+			return ({ update, result }) => {
+				update({}).finally(() => {
 					submitting = false;
+					if (result.status === 200) {
+						rsvp = null;
+					}
 				});
 			};
 		}}
@@ -38,9 +39,10 @@
 			name="fullname"
 			value={form?.name ?? ''}
 			placeholder={$_('rsvp.fullname_placeholder')}
+			onfocus={() => (form = null)}
 		/>
 		<div class="select-container">
-			<RsvpSelect />
+			<RsvpSelect bind:rsvp />
 		</div>
 		<button class="send {localeStore.locale}" type="submit" disabled={submitting}>
 			{#if submitting}
@@ -63,9 +65,14 @@
 				{$_('rsvp.email_error')}
 			</p>
 		{/if}
-		{#if form?.nameValidationError}
+		{#if form?.missingName}
 			<p class="error {localeStore.locale}">
-				{$_('rsvp.name_validation_error')}
+				{$_('rsvp.missing_name_error')}
+			</p>
+		{/if}
+		{#if form?.missingRsvp}
+			<p class="error {localeStore.locale}">
+				{$_('rsvp.missing_rsvp_error')}
 			</p>
 		{/if}
 	</div>

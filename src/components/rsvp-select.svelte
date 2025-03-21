@@ -3,13 +3,17 @@
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { Check, ChevronDown } from '@lucide/svelte';
-	const select = new Select({});
+
+	let { rsvp = $bindable(null) }: { rsvp: string | null } = $props();
 
 	const options = [$_('rsvp.select.yes'), $_('rsvp.select.no')];
+	const select = new Select<string>({
+		onValueChange: (value) => (rsvp = value ?? null)
+	});
 
-	const value = $derived(select.value);
-
-	$inspect(value);
+	$effect(() => {
+		select.value = rsvp ?? undefined;
+	});
 </script>
 
 <button
@@ -71,19 +75,23 @@
 		border: 1px solid $primary-color-light;
 		box-shadow: 0 4px 12px $font-color-light;
 		border-radius: 4px;
-		padding: 0.5em;
+		padding: 0.8em;
 
 		&:focus {
 			outline: none;
 		}
 
 		div.option {
+			display: flex;
+			align-items: center;
+			height: 2.5em;
 			position: relative;
 			border-radius: 4px;
-			padding: 0.2em 0.4em;
+			padding: 0.7em;
 			letter-spacing: 0.02em;
+
 			&:not(:last-child) {
-				margin-bottom: 0.2em;
+				margin-bottom: 0.5em;
 			}
 
 			&[data-highlighted] {
@@ -92,7 +100,7 @@
 
 			.check-container {
 				position: absolute;
-				top: 0.35em;
+				top: 0.7em;
 				color: $primary-color-dark;
 			}
 

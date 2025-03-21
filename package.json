@@ -14,7 +14,7 @@
 		"cf-typegen": "wrangler types && mv worker-configuration.d.ts src/"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250317.0",
+		"@cloudflare/workers-types": "^4.20250320.0",
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/adapter-cloudflare": "^4.9.0",
 		"@sveltejs/kit": "^2.20.1",
@@ -31,7 +31,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.482.0",
-		"melt": "^0.18.2",
+		"melt": "^0.18.4",
 		"resend": "^4.1.2",
 		"svelte-i18n": "^4.0.1"
 	}

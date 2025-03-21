@@ -4,10 +4,9 @@
 	import Rsvp from '../components/rsvp.svelte';
 	import TopCover from '../components/top-cover.svelte';
 	import WeddingLocation from '../components/wedding-location.svelte';
-	import type { ActionData } from './$types';
+	import type { PageProps } from './$types';
 
-	let { form }: { form: ActionData } = $props();
-	$inspect(form);
+	let { form }: PageProps = $props();
 </script>
 
 <TopCover />
