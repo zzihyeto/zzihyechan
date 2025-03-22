@@ -116,17 +116,7 @@
 
 			.ending-text {
 				text-align: right;
-				@include for-range($mobile-sm) {
-					font-size: 18px;
-				}
-
-				@include for-range($mobile-md) {
-					font-size: 19px;
-				}
-
-				@include for-range($mobile-lg) {
-					font-size: 20px;
-				}
+				font-size: 1.2rem;
 			}
 
 			.bride-groom-family-description {
