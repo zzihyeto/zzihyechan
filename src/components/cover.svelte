@@ -2,6 +2,7 @@
 	import { localeStore } from '../i18n.svelte';
 	import { browser } from '$app/environment';
 	import { Confetti } from 'svelte-confetti';
+	import { _ } from 'svelte-i18n';
 
 	const maxSectionHeight = 900;
 	let sectionHeight = $state(maxSectionHeight);
@@ -39,14 +40,9 @@
 		<span class="our-names en-sacramento">Emily & Anthony</span>
 	</div>
 
-	<div class="event-date-and-place-box" class:kr-locale={localeStore.isKr}>
-		{#if localeStore.isKr}
-			<span class="event-date-and-time kr">2025년 6월 7일 (토) 4시</span>
-			<span class="event-place kr">Irvine, California</span>
-		{:else}
-			<span class="event-date-and-time en">6.7.2025 Sat 4:00 pm</span>
-			<span class="event-place en">Irvine, CA</span>
-		{/if}
+	<div class="event-date-and-place-box">
+		<span class="event-date-and-time {localeStore.locale}">{$_('cover.date')}</span>
+		<span class="event-place {localeStore.locale}">{$_('cover.place')}</span>
 	</div>
 </section>
 

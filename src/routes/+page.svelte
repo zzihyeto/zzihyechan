@@ -1,16 +1,16 @@
 <script lang="ts">
-	import CalendarWeddingDate from '../components/calendar-wedding-date.svelte';
-	import InvitationMessage from '../components/invitation-message.svelte';
+	import Calendar from '../components/calendar.svelte';
+	import Letter from '../components/letter.svelte';
 	import Rsvp from '../components/rsvp.svelte';
-	import TopCover from '../components/top-cover.svelte';
-	import WeddingLocation from '../components/wedding-location.svelte';
+	import Cover from '../components/cover.svelte';
+	import Location from '../components/location.svelte';
 	import type { PageProps } from './$types';
 
 	let { form }: PageProps = $props();
 </script>
 
-<TopCover />
-<InvitationMessage />
+<Cover />
+<Letter />
 <Rsvp {form} />
-<CalendarWeddingDate />
-<WeddingLocation />
+<Calendar />
+<Location />

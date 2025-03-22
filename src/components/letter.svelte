@@ -1,5 +1,6 @@
 <script lang="ts">
 	import invitationMessage from '$lib/assets/invitation-message.png';
+	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 
 	const nameDivider = `
@@ -11,13 +12,8 @@
 <section class="invitation-message">
 	<div class="invitation-message__top">
 		<div>
-			{#if localeStore.isKr}
-				<h2 class="wedding-date kr">2025.6.7</h2>
-				<p class="sub-heading kr">두 사람의 결혼식에 초대합니다.</p>
-			{:else}
-				<h2 class="wedding-date en">6.7.2025</h2>
-				<p class="sub-heading en">You're invited to our wedding!</p>
-			{/if}
+			<h2 class="wedding-date {localeStore.locale}">{$_('letter.date')}</h2>
+			<p class="sub-heading {localeStore.locale}">{$_('letter.sub_title')}</p>
 		</div>
 
 		<div>
@@ -80,25 +76,23 @@
 				margin-bottom: 0.3em;
 
 				&.kr {
-					font-size: 1.1rem;
+					@extend .title-font-kr;
 				}
 
 				&.en {
-					font-size: 1.5rem;
-					font-weight: 700;
+					@extend .title-font-en;
 				}
 			}
 
 			.sub-heading {
 				color: $primary-color;
-				font-weight: 500;
-
 				&.kr {
+					font-weight: 500;
 					font-size: 1rem;
 				}
 
 				&.en {
-					font-size: 1.2rem;
+					font-size: 1.3rem;
 					font-weight: 600;
 				}
 			}
@@ -112,7 +106,7 @@
 				}
 				&.en {
 					line-height: 1.8em;
-					font-size: 1.1rem;
+					font-size: 1.2rem;
 				}
 			}
 
@@ -159,9 +153,6 @@
 					}
 				}
 			}
-		}
-
-		&__bottom {
 		}
 	}
 </style>

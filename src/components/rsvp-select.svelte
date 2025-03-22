@@ -4,15 +4,16 @@
 	import { localeStore } from '../i18n.svelte';
 	import { Check, ChevronDown } from '@lucide/svelte';
 
-	let { rsvp = $bindable(null) }: { rsvp: string | null } = $props();
+	let { rsvp = $bindable(null), clearForm }: { rsvp: string | null; clearForm: () => void } =
+		$props();
 
 	const options = [$_('rsvp.select.yes'), $_('rsvp.select.no')];
 	const select = new Select<string>({
-		onValueChange: (value) => (rsvp = value ?? null)
-	});
-
-	$effect(() => {
-		select.value = rsvp ?? undefined;
+		onValueChange: (value) => {
+			rsvp = value ?? null;
+			clearForm();
+		},
+		value: () => rsvp ?? undefined
 	});
 </script>
 

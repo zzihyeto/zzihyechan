@@ -9,6 +9,18 @@
 
 	let rsvp = $state<string | null>(null);
 	let submitting = $state(false);
+
+	function clearValidationMessage(formInput: 'name' | 'rsvp') {
+		if (formInput === 'name' && form?.missingName) {
+			form = null;
+		}
+
+		if (formInput === 'rsvp' && form?.missingRsvp) {
+			form = null;
+		}
+	}
+
+	$inspect('form', form);
 </script>
 
 <section class="rsvp">
@@ -39,10 +51,10 @@
 			name="fullname"
 			value={form?.name ?? ''}
 			placeholder={$_('rsvp.fullname_placeholder')}
-			onfocus={() => (form = null)}
+			onfocus={() => clearValidationMessage('name')}
 		/>
 		<div class="select-container">
-			<RsvpSelect bind:rsvp />
+			<RsvpSelect bind:rsvp clearForm={() => clearValidationMessage('rsvp')} />
 		</div>
 		<button class="send {localeStore.locale}" type="submit" disabled={submitting}>
 			{#if submitting}
@@ -179,6 +191,7 @@
 
 	.submit-message {
 		margin-top: 0.5em;
+		height: 1.5em;
 
 		.kr {
 			font-size: 0.9rem;
