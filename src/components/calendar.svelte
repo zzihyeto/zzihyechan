@@ -26,8 +26,8 @@
 <style lang="scss">
 	.calendar {
 		position: relative;
-		background-color: #fff;
-		padding: 4em 3.5em;
+		background-color: $white;
+		padding: 2em 3.5em 4em 3.5em;
 
 		.title {
 			@extend .title-font-en;
