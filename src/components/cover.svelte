@@ -49,7 +49,7 @@
 <style lang="scss">
 	section.top-cover {
 		position: relative;
-		background-image: url('/src/lib/assets/cover-image.jpg');
+		background-image: url('/src/lib/assets/cover.webp');
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;

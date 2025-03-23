@@ -1,5 +1,5 @@
 <script lang="ts">
-	import letterBottom from '$lib/assets/letter-bottom.jpg';
+	import letterBottom from '$lib/assets/letter-bottom.webp';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import letterDeco from '$lib/assets/letter-deco.svg';
@@ -58,7 +58,7 @@
 	}
 
 	img.header-deco {
-		width: 15em;
+		width: 13em;
 		margin-bottom: 0.8em;
 	}
 
