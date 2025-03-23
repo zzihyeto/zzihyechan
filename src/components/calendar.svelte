@@ -6,48 +6,48 @@
 	import thursdayCol from '$lib/assets/calendar/calendar-thursday.svg';
 	import fridayCol from '$lib/assets/calendar/calendar-friday.svg';
 	import saturdayCol from '$lib/assets/calendar/calendar-saturday.svg';
+	import calendarDeco from '$lib/assets/calendar-deco.svg';
 </script>
 
-<section class="calendar-wedding-date en">
-	<h2 class="calendar-heading">June</h2>
-	<div class="calendar-body">
-		<img class="week-col" src={sundayCol} />
-		<img class="week-col" src={mondayCol} />
-		<img class="week-col" src={tuesdayCol} />
-		<img class="week-col" src={wednesdayCol} />
-		<img class="week-col" src={thursdayCol} />
-		<img class="week-col" src={fridayCol} />
-		<img class="week-col" src={saturdayCol} />
+<section class="calendar">
+	<h2 class="title en">June</h2>
+	<div class="calendar-content">
+		<img class="week-col" src={sundayCol} alt="sunday column" />
+		<img class="week-col" src={mondayCol} alt="monday column" />
+		<img class="week-col" src={tuesdayCol} alt="tuesday column" />
+		<img class="week-col" src={wednesdayCol} alt="wednesday column" />
+		<img class="week-col" src={thursdayCol} alt="thursday column" />
+		<img class="week-col" src={fridayCol} alt="friday column" />
+		<img class="week-col" src={saturdayCol} alt="saturday column" />
 	</div>
+	<img class="calendar-deco" src={calendarDeco} alt="calendar deco" />
 </section>
 
 <style lang="scss">
-	.calendar-wedding-date {
+	.calendar {
+		position: relative;
 		background-color: #fff;
-		display: flex;
-		flex-direction: column;
-		row-gap: 4em;
 		padding: 4em 3.5em;
 
-		@include for-range($mobile-sm) {
-			padding-inline: 3em;
-		}
-
-		.calendar-heading {
-			color: $primary-color;
-			font-size: 2rem;
-			font-weight: 700;
+		.title {
+			@extend .title-font-en;
 			text-align: center;
+			margin-bottom: 1em;
 		}
 
-		.calendar-body {
+		.calendar-content {
 			display: flex;
 			justify-content: space-between;
-			gap: 1.4em;
 
 			.week-col {
 				height: 100%;
 			}
+		}
+
+		img.calendar-deco {
+			position: absolute;
+			bottom: 0.5em;
+			right: 2.5em;
 		}
 	}
 </style>

@@ -5,7 +5,6 @@ $primary-color-dark: #8e5f5d;
 $white: #FFF;
 $white-2: #eaeaea;
 $bg-color-1: #EFEAE4;
-$bg-color-2: #F5F3F1;
 $green-1: #31a671;
 $red-1: #e54f4f;
 $blue-1: rgb(114, 187, 223);
@@ -37,11 +36,13 @@ $mobile-lg: "(min-width: 411px)";
 }
 
 .title-font-kr {
+  color: $primary-color;
   font-size: 1.3rem;
   font-weight: 600;
 }
 
 .title-font-en {
+  color: $primary-color;
   font-size: 1.8rem;
   font-weight: 700;
 }
