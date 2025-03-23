@@ -4,6 +4,7 @@
 	import { LoaderCircle } from '@lucide/svelte';
 	import { enhance } from '$app/forms';
 	import RsvpSelect from './rsvp-select.svelte';
+	import rsvpDeco from '$lib/assets/rsvp-deco.svg';
 
 	let { form } = $props();
 
@@ -24,10 +25,13 @@
 </script>
 
 <section class="rsvp">
-	<h2 class="title {localeStore.locale}">{$_('rsvp.title')}</h2>
-	<p class="reply-by {localeStore.locale}">
-		{$_('rsvp.reply_by')}
-	</p>
+	<div class="header">
+		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
+		<h2 class="title {localeStore.locale}">{$_('rsvp.title')}</h2>
+		<p class="sub-title {localeStore.locale}">
+			{$_('rsvp.reply_by')}
+		</p>
+	</div>
 
 	<form
 		class="rsvp-form"
@@ -95,32 +99,45 @@
 		padding: 4.5em 3.5em;
 	}
 
+	.header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	img.header-deco {
+		width: 4.5em;
+		margin-bottom: 0.8em;
+	}
+
 	h2.title {
 		color: $primary-color;
 
 		&.kr {
 			@extend .title-font-kr;
+			letter-spacing: 1px;
 		}
 
 		&.en {
 			@extend .title-font-en;
+			letter-spacing: 3px;
 		}
 	}
 
-	p.reply-by {
-		margin-top: 0.5em;
-
+	p.sub-title {
 		&.kr {
-			font-size: 0.95rem;
+			margin-top: 0.9em;
+			font-size: 0.9rem;
 		}
 
 		&.en {
+			margin-top: 0.5em;
 			font-size: 1.2rem;
 		}
 	}
 
 	form.rsvp-form {
-		margin-top: 4em;
+		margin-top: 3em;
 	}
 
 	input.fullname {

@@ -14,7 +14,7 @@
 
 <section class="letter">
 	<div class="header">
-		<img class="letter-deco" src={letterDeco} alt="letter-deco" />
+		<img class="header-deco" src={letterDeco} alt="letter header deco" />
 		<h2 class="title {localeStore.locale}">{$_('letter.date')}</h2>
 		<p class="sub-title {localeStore.locale}">{$_('letter.sub_title')}</p>
 	</div>
@@ -47,7 +47,7 @@
 
 <style lang="scss">
 	section.letter {
-		padding: 4.5em 3.5em 2em 3.5em;
+		padding: 4.5em 3.5em 3em 3.5em;
 	}
 
 	.header {
@@ -57,7 +57,7 @@
 		margin-bottom: 2em;
 	}
 
-	img.letter-deco {
+	img.header-deco {
 		width: 15em;
 		margin-bottom: 0.8em;
 	}
@@ -91,6 +91,7 @@
 	}
 
 	p.letter {
+		text-align: center;
 		&.kr {
 			line-height: 2.3em;
 			font-size: 0.9rem;
