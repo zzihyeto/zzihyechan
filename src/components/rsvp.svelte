@@ -99,13 +99,11 @@
 		color: $primary-color;
 
 		&.kr {
-			font-size: 1.3rem;
-			font-weight: 600;
+			@extend .title-font-kr;
 		}
 
 		&.en {
-			font-size: 1.8rem;
-			font-weight: 700;
+			@extend .title-font-en;
 		}
 	}
 
