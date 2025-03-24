@@ -20,6 +20,7 @@
 		const lightbox = new PhotoSwipeLightBox({
 			gallery: '#gallery',
 			children: 'a',
+			showHideAnimationType: 'fade',
 			pswpModule: PhotoSwipe
 		});
 
