@@ -1,71 +1,113 @@
 <script lang="ts">
-	import waveSectionCover from '$lib/assets/location-wave-top.svg';
-	let venueAddress: HTMLElement;
+	import locationTopWave from '$lib/assets/location-top-wave.svg';
+	import locationDeco from '$lib/assets/location-deco.svg';
+	import { _ } from 'svelte-i18n';
+	import { localeStore } from '../i18n.svelte';
+	import { Clipboard } from '@lucide/svelte';
 
-	const copyVenueAddress = (event: Event) => {
-		event?.preventDefault();
-
-		const addressText = venueAddress.textContent;
-		if (addressText) {
-			navigator.clipboard
-				.writeText(addressText)
-				.then(() => alert('Copied the address :)'))
-				.catch((error) => console.log('error'));
-		}
-	};
+	function copyAddress() {
+		navigator.clipboard
+			.writeText('108 Lamplighter, Irvine, CA 92620')
+			.then(() => alert($_('location.address_copied')))
+			.catch(() => null);
+	}
 </script>
 
-<section class="wedding-location en">
-	<img src={waveSectionCover} class="wave-cover-top-img" />
-	<h2 class="location-heading">Location</h2>
-
-	<div class="location en">
-		<p>Woodbury Community Center</p>
-		<a class="copy-address" on:click={copyVenueAddress} bind:this={venueAddress}>
-			108 Lamplighter, Irvine, CA 92620
-		</a>
-	</div>
-
-  <p class="attribution en">made with ♡ by Anthony & Emily</p>
+<img src={locationTopWave} class="location-top-wave" alt="" />
+<section class="location">
+	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
+	<p class="venue en">Woodbury Community Center</p>
+	{#if localeStore.isKr}
+		<p class="venue kr">우드버리 커뮤니티 센터</p>
+	{/if}
+	<button class="copy-address en" onclick={copyAddress}>
+		<span class="clipboard-icon">
+			<Clipboard size="1.1em" />
+		</span>
+		<span class="address">108 Lamplighter, Irvine, CA 92620</span></button
+	>
+	<div class="map"></div>
+	<p class="signature en">made with ♡ by Emily & Anthony</p>
+	<img class="location-deco" src={locationDeco} alt="" />
 </section>
 
 <style lang="scss">
-	.wedding-location {
+	img.location-top-wave {
+		max-width: $content-max-width;
+		margin: auto;
+	}
+
+	section.location {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		position: relative;
 		background-color: $bg-color-1;
-		padding-top: 50px;
+		padding: 1em 2em 2em 2em;
+	}
 
+	h2.title {
+		color: $primary-color;
+		text-align: center;
+		margin-bottom: 1em;
 
-		.wave-cover-top-img {
-			position: absolute;
-			width: 100%;
-			left: 0;
-			top: 0;
+		&.kr {
+			@extend .title-font-kr;
+			letter-spacing: 1px;
 		}
 
-		.location-heading {
-			color: $primary-color;
-			font-size: 32px;
-			font-weight: 700;
-			text-align: center;
+		&.en {
+			@extend .title-font-en;
+			letter-spacing: 1px;
+		}
+	}
+
+	p.venue {
+		&.kr {
+			font-size: 1rem;
+			font-weight: 500;
 		}
 
-		.location {
-			font-size: 1.1rem;
-			line-height: 1.3;
-			text-align: center;
+		&.en {
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+	}
+
+	button.copy-address {
+		display: flex;
+		align-items: center;
+		margin-top: 0.5em;
+
+		.clipboard-icon {
+			height: 1em;
+			display: inline-block;
+			margin-right: 0.2em;
 		}
 
-		.copy-address {
-			cursor: pointer;
+		.address {
+			display: inline-block;
+			font-size: 1.2rem;
+			text-decoration: underline;
 		}
+	}
 
-    .attribution {
-      font-family: "Raleway", serif;
-      padding-top: 40px;
-      padding-bottom: 8px;
-      text-align: center;
-      font-size: .95rem;
-    }
+	.map {
+		margin-top: 1em;
+		width: 100%;
+		height: 16em;
+		background-color: $gray-1;
+		margin-bottom: 7em;
+	}
+
+	p.signature {
+		font-size: 1rem;
+	}
+
+	img.location-deco {
+		position: absolute;
+		bottom: 2.4em;
+		right: 1.3em;
 	}
 </style>

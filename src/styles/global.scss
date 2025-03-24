@@ -60,8 +60,7 @@ body {
 img,
 picture,
 video,
-canvas,
-svg {
+canvas {
 	display: block;
 	max-width: 100%;
 }
@@ -92,8 +91,8 @@ input[type='reset'] {
 	outline: inherit;
 }
 
-section {
-	max-width: 600px;
+section.cover, section.letter, section.rsvp, section.gallery, section.calendar, section.location {
+	max-width: $content-max-width;
 	margin: auto;
 }
 

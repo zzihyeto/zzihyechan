@@ -90,7 +90,7 @@
 		{#each photos as photo}
 			<a
 				href={photo.src}
-				class="photo-slide"
+				class="slide"
 				data-pswp-width={photo.width}
 				data-pswp-height={photo.height}
 				target="_blank"
@@ -151,14 +151,14 @@
 		object-fit: cover;
 	}
 
-	.photo-slide:nth-child(1),
-	.photo-slide:nth-child(2),
-	.photo-slide:nth-child(3),
-	.photo-slide:nth-child(5),
-	.photo-slide:nth-child(7),
-	.photo-slide:nth-child(8),
-	.photo-slide:nth-child(9),
-	.photo-slide:nth-child(10) {
+	.slide:nth-child(1),
+	.slide:nth-child(2),
+	.slide:nth-child(3),
+	.slide:nth-child(5),
+	.slide:nth-child(7),
+	.slide:nth-child(8),
+	.slide:nth-child(9),
+	.slide:nth-child(10) {
 		grid-row: span 2;
 	}
 </style>

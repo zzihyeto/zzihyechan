@@ -26,5 +26,9 @@
 	"gallery": {
 		"title": "Gallery",
 		"sub_title": "Click to enlarge the images."
+	},
+	"location": {
+		"title": "Location",
+		"address_copied": "The address is copied!"
 	}
 }

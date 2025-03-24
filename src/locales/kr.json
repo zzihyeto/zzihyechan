@@ -26,5 +26,9 @@
 	"gallery": {
 		"title": "사진 모음",
 		"sub_title": "사진을 탭하면 더 크게 볼 수 있습니다."
+	},
+	"location": {
+		"title": "예식장",
+		"address_copied": "주소를 복사했습니다."
 	}
 }

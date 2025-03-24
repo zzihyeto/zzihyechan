@@ -17,7 +17,7 @@
 	}
 </script>
 
-<section style:height={`${sectionHeight}px`} class="top-cover">
+<section style:height={`${sectionHeight}px`} class="cover">
 	<div class="confetti-area">
 		<Confetti
 			x={[-5, 5]}
@@ -49,7 +49,7 @@
 </section>
 
 <style lang="scss">
-	section.top-cover {
+	section.cover {
 		position: relative;
 		background-image: url('/src/lib/assets/cover-3.webp');
 		background-repeat: no-repeat;
@@ -67,13 +67,13 @@
 	}
 	.names-kr-box {
 		position: absolute;
-		top: 2em;
+		top: 3em;
 		left: 4em;
 
 		span.names {
 			display: block;
 			font-size: 1rem;
-			letter-spacing: 0.7em;
+			letter-spacing: 0.8em;
 			line-height: 2;
 		}
 	}
@@ -81,7 +81,7 @@
 	.cover-title-container {
 		width: 100%;
 		position: absolute;
-		bottom: 1em;
+		bottom: 1.5em;
 	}
 
 	.names-en-box {
