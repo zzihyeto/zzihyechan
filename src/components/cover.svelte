@@ -30,26 +30,28 @@
 		/>
 	</div>
 
-	<div class="our-names-kr-box">
-		<span class="our-names kr">박건희</span>
-		<span class="our-names kr">그리고</span>
-		<span class="our-names kr">피아영</span>
+	<div class="names-kr-box">
+		<span class="names kr">박건희</span>
+		<span class="names kr">그리고</span>
+		<span class="names kr">피아영</span>
 	</div>
 
-	<div class="our-names-en-box">
-		<span class="our-names en-sacramento">Emily & Anthony</span>
-	</div>
+	<div class="cover-title-container">
+		<div class="names-en-box">
+			<span class="names en-sacramento">Emily & Anthony</span>
+		</div>
 
-	<div class="event-date-and-place-box">
-		<span class="event-date-and-time {localeStore.locale}">{$_('cover.date')}</span>
-		<span class="event-place {localeStore.locale}">{$_('cover.place')}</span>
+		<div class="event-date-and-place-box">
+			<span class="event-date-and-time {localeStore.locale}">{$_('cover.date')}</span>
+			<span class="event-place {localeStore.locale}">{$_('cover.place')}</span>
+		</div>
 	</div>
 </section>
 
 <style lang="scss">
 	section.top-cover {
 		position: relative;
-		background-image: url('/src/lib/assets/cover.webp');
+		background-image: url('/src/lib/assets/cover-3.webp');
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
@@ -63,12 +65,12 @@
 		overflow: hidden;
 		pointer-events: none;
 	}
-	.our-names-kr-box {
+	.names-kr-box {
 		position: absolute;
 		top: 2em;
 		left: 4em;
 
-		span.our-names {
+		span.names {
 			display: block;
 			font-size: 1rem;
 			letter-spacing: 0.7em;
@@ -76,14 +78,18 @@
 		}
 	}
 
-	.our-names-en-box {
+	.cover-title-container {
 		width: 100%;
 		position: absolute;
-		bottom: 5.5em;
+		bottom: 1em;
+	}
+
+	.names-en-box {
+		width: 100%;
 		display: flex;
 		justify-content: center;
 
-		span.our-names {
+		span.names {
 			display: block;
 			color: $white;
 			word-spacing: 5px;
@@ -93,8 +99,6 @@
 
 	.event-date-and-place-box {
 		width: 100%;
-		position: absolute;
-		bottom: 1.5em;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

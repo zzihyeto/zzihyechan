@@ -8,7 +8,7 @@
 	import photo7 from '$lib/assets/gallery/7.webp';
 	import photo8 from '$lib/assets/gallery/8.webp';
 	import photo9 from '$lib/assets/gallery/9.webp';
-	import photo10 from '$lib/assets/gallery/10.webp';
+	import photo10 from '$lib/assets/gallery/11.webp';
 	import PhotoSwipeLightBox from 'photoswipe/lightbox';
 	import PhotoSwipe from 'photoswipe';
 	import 'photoswipe/style.css';
