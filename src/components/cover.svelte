@@ -22,6 +22,7 @@
 		<Confetti
 			x={[-5, 5]}
 			y={[0, 0.1]}
+			colorArray={["#588adb", "#f5e298", "#fff", "#9aa3f5"]}
 			delay={[500, 2000]}
 			infinite
 			duration={5000}
@@ -61,7 +62,7 @@
 		top: -50px;
 		left: -50px;
 		height: 100vh;
-		width: 100vw;
+		width: 100%;
 		overflow: hidden;
 		pointer-events: none;
 	}
