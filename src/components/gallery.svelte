@@ -29,7 +29,7 @@
 
 	const photos = [
 		{
-			src: photo1,
+			src: photo5,
 			width: 1200,
 			height: 1800
 		},
@@ -49,9 +49,9 @@
 			height: 1333
 		},
 		{
-			src: photo5,
+			src: photo1,
 			width: 1200,
-			height: 1800
+			height: 1790
 		},
 		{
 			src: photo6,
