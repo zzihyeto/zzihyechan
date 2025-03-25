@@ -30,7 +30,6 @@
 		<iframe
 			class="google-maps"
 			title="google maps"
-			loading="lazy"
 			allowfullscreen
 			referrerpolicy="no-referrer-when-downgrade"
 			src={googleMapsUrl}
