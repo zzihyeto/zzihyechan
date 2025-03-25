@@ -4,6 +4,9 @@
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { Clipboard } from '@lucide/svelte';
+	import { PUBLIC_GOOGLE_MAPS_API_KEY } from '$env/static/public';
+
+	const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=${PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent('108 Lamplighter, Irvine, CA 92620')}`;
 
 	function copyAddress() {
 		navigator.clipboard
@@ -16,17 +19,23 @@
 <img src={locationTopWave} class="location-top-wave" alt="" />
 <section class="location">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
-	<p class="venue en">Woodbury Community Center</p>
-	{#if localeStore.isKr}
-		<p class="venue kr">우드버리 커뮤니티 센터</p>
-	{/if}
+	<p class="venue en">Woodbury Community Association</p>
 	<button class="copy-address en" onclick={copyAddress}>
 		<span class="clipboard-icon">
 			<Clipboard size="1.1em" />
 		</span>
 		<span class="address">108 Lamplighter, Irvine, CA 92620</span></button
 	>
-	<div class="map"></div>
+	<div class="map">
+		<iframe
+			class="google-maps"
+			title="google maps"
+			loading="lazy"
+			allowfullscreen
+			referrerpolicy="no-referrer-when-downgrade"
+			src={googleMapsUrl}
+		></iframe>
+	</div>
 	<p class="signature en">made with ♡ by Emily & Anthony</p>
 	<img class="location-deco" src={locationDeco} alt="" />
 </section>
@@ -64,14 +73,8 @@
 	}
 
 	p.venue {
-		&.kr {
-			font-size: 1rem;
-			font-weight: 500;
-		}
-
 		&.en {
-			font-size: 1.2rem;
-			font-weight: 600;
+			font-size: 1.1rem;
 		}
 	}
 
@@ -94,11 +97,16 @@
 	}
 
 	.map {
-		margin-top: 1em;
+		margin-top: 2em;
 		width: 100%;
 		height: 16em;
-		background-color: $gray-1;
 		margin-bottom: 7em;
+	}
+
+	iframe.google-maps {
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
 	}
 
 	p.signature {

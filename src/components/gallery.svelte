@@ -76,7 +76,7 @@
 		{
 			src: photo10,
 			width: 1200,
-			height: 1800
+			height: 1790
 		}
 	];
 </script>

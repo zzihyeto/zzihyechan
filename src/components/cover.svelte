@@ -22,7 +22,7 @@
 		<Confetti
 			x={[-5, 5]}
 			y={[0, 0.1]}
-			colorArray={["#588adb", "#f5e298", "#fff", "#9aa3f5"]}
+			colorArray={['#588adb', '#f5e298', '#fff', '#9aa3f5']}
 			delay={[500, 2000]}
 			infinite
 			duration={5000}
@@ -39,7 +39,7 @@
 
 	<div class="cover-title-container">
 		<div class="names-en-box">
-			<span class="names en-sacramento">Emily & Anthony</span>
+			<span class="names en-sacramento">Anthony & Emily</span>
 		</div>
 
 		<div class="event-date-and-place-box">
@@ -52,7 +52,7 @@
 <style lang="scss">
 	section.cover {
 		position: relative;
-		background-image: url('/src/lib/assets/cover-3.webp');
+		background-image: url('/src/lib/assets/cover.webp');
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
