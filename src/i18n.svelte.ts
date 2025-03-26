@@ -20,7 +20,11 @@ class LocaleStore {
 		});
 
 		locale.subscribe((locale) => {
-			this.locale = locale;
+			if (locale && !['kr', 'en'].includes(locale)) {
+				this.locale = 'kr';
+			} else {
+				this.locale = locale;
+			}
 		});
 	}
 }
