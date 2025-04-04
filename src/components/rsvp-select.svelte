@@ -40,7 +40,7 @@
 		{/if}
 	</span>
 	<div class="chevron-down-container">
-		<ChevronDown />
+		<ChevronDown strokeWidth={1.5} />
 	</div>
 </button>
 

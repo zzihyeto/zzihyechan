@@ -30,7 +30,7 @@
 				{item.item.title}
 			</button>
 			<div class="chevron-down-container {localeStore.locale}" class:rotate={item.isExpanded}>
-				<ChevronDown strokeWidth={'1.25px'} />
+				<ChevronDown strokeWidth={1.25} />
 			</div>
 		</div>
 
