@@ -3,6 +3,7 @@
 	import '/src/i18n.svelte.ts';
 	import { localeStore } from '../i18n.svelte';
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 
 	let { children } = $props();
 
@@ -23,7 +24,10 @@
 		rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 	/>
-	<meta name="description" content="You're invited to our most special day!" />
+	<meta property="og:title" content={$_('meta.title')} />
+	<!-- <meta property="og:description" content="You're invited to our most special day!" />
+  <meta property="og:image" content={image} />
+  <meta property="og:type" content="website" /> -->
 </svelte:head>
 
 {#if !localeStore.isLoading && localeStore.locale}
