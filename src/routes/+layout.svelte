@@ -13,7 +13,6 @@
 </script>
 
 <svelte:head>
-	<title>Emily and Anthony's Wedding Day</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
