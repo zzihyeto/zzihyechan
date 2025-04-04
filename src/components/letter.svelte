@@ -58,7 +58,7 @@
 	}
 
 	img.header-deco {
-		width: 13em;
+		width: 12em;
 		margin-bottom: 0.8em;
 	}
 

@@ -29,8 +29,8 @@
 			<button {...item.trigger} class="trigger {localeStore.locale}">
 				{item.item.title}
 			</button>
-			<div class="chevron-down-container" class:rotate={item.isExpanded}>
-				<ChevronDown />
+			<div class="chevron-down-container {localeStore.locale}" class:rotate={item.isExpanded}>
+				<ChevronDown strokeWidth={'1.25px'} />
 			</div>
 		</div>
 
@@ -38,7 +38,7 @@
 			<div
 				{...item.content}
 				class="content {localeStore.locale}"
-				transition:slide={{ duration: 250 }}
+				transition:slide={{ duration: 350 }}
 			>
 				{@render content()}
 			</div>
@@ -83,18 +83,19 @@
 	button.trigger {
 		color: $primary-color;
 		width: 100%;
-		height: 2.6em;
 
 		&.en {
 			letter-spacing: 1px;
 			font-weight: 600;
-			font-size: 1.4rem;
+			font-size: 1.3rem;
+			padding: 0.6em 0;
 		}
 
 		&.kr {
 			letter-spacing: 1px;
 			font-weight: 500;
-			font-size: 1.2rem;
+			font-size: 1.1rem;
+			padding: 0.8em 0;
 		}
 	}
 
@@ -102,10 +103,17 @@
 		position: absolute;
 		width: 1.5em;
 		height: 1.5em;
-		top: 1em;
 		right: 0.6em;
 		color: $primary-color;
-		transition: transform 250ms ease;
+		transition: transform 350ms ease;
+
+		&.en {
+			top: 1.05em;
+		}
+
+		&.kr {
+			top: 0.9em;
+		}
 
 		&.rotate {
 			transform: rotate(180deg);
