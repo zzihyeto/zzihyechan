@@ -5,10 +5,11 @@
 	import { enhance } from '$app/forms';
 	import RsvpSelect from './rsvp-select.svelte';
 	import rsvpDeco from '$lib/assets/rsvp-deco.svg';
+	import RsvpAccordion from './rsvp-accordion.svelte';
 
 	let { form } = $props();
 
-	let rsvp = $state<string | null>(null);
+	let rsvp = $state<'yes' | 'no' | null>(null);
 	let submitting = $state(false);
 
 	function clearValidationMessage(formInput: 'name' | 'rsvp') {
@@ -92,6 +93,10 @@
 			</p>
 		{/if}
 	</div>
+
+	<div class="accordion-container">
+		<RsvpAccordion />
+	</div>
 </section>
 
 <style lang="scss">
@@ -165,7 +170,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 2em;
+		margin-top: 3em;
 		height: 2.5em;
 		width: 100%;
 		background-color: $primary-color;
@@ -223,5 +228,12 @@
 		p.error {
 			color: $red-1;
 		}
+	}
+
+	.accordion-container {
+		margin-top: 2em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 </style>

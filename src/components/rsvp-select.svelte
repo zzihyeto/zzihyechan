@@ -4,11 +4,15 @@
 	import { localeStore } from '../i18n.svelte';
 	import { Check, ChevronDown } from '@lucide/svelte';
 
-	let { rsvp = $bindable(null), clearForm }: { rsvp: string | null; clearForm: () => void } =
+	let { rsvp = $bindable(null), clearForm }: { rsvp: 'yes' | 'no' | null; clearForm: () => void } =
 		$props();
 
-	const options = [$_('rsvp.select.yes'), $_('rsvp.select.no')];
-	const select = new Select<string>({
+	const options = [
+		{ key: $_('rsvp.select.yes'), value: 'yes' },
+		{ key: $_('rsvp.select.no'), value: 'no' }
+	] as Array<{ key: string; value: 'yes' | 'no' }>;
+
+	const select = new Select<'yes' | 'no'>({
 		onValueChange: (value) => {
 			rsvp = value ?? null;
 			clearForm();
@@ -24,7 +28,17 @@
 	class:opened={select.open}
 	{...select.trigger}
 >
-	<span>{select.value ?? $_('rsvp.select.select_attendance')}</span>
+	<span>
+		{#if select.value === 'yes'}
+			{$_('rsvp.select.yes')}
+		{/if}
+		{#if select.value === 'no'}
+			{$_('rsvp.select.no')}
+		{/if}
+		{#if select.value === undefined}
+			{$_('rsvp.select.select_attendance')}
+		{/if}
+	</span>
 	<div class="chevron-down-container">
 		<ChevronDown />
 	</div>
@@ -32,14 +46,17 @@
 
 <div class="content" {...select.content}>
 	{#each options as option}
-		<div class="option" {...select.getOption(option)}>
-			{#if select.isSelected(option)}
+		<div class="option" {...select.getOption(option.value)}>
+			{#if select.isSelected(option.value)}
 				<span class="check-container">
 					<Check size="20" />
 				</span>
 			{/if}
-			<span class="option-label {localeStore.locale}" class:selected={select.isSelected(option)}>
-				{option}
+			<span
+				class="option-label {localeStore.locale}"
+				class:selected={select.isSelected(option.value)}
+			>
+				{option.key}
 			</span>
 		</div>
 	{/each}
