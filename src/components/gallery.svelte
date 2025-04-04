@@ -1,5 +1,4 @@
 <script lang="ts">
-	import photo1 from '$lib/assets/gallery/1.webp';
 	import photo2 from '$lib/assets/gallery/2.webp';
 	import photo3 from '$lib/assets/gallery/3.webp';
 	import photo4 from '$lib/assets/gallery/4.webp';
@@ -8,7 +7,9 @@
 	import photo7 from '$lib/assets/gallery/7.webp';
 	import photo8 from '$lib/assets/gallery/8.webp';
 	import photo9 from '$lib/assets/gallery/9.webp';
-	import photo10 from '$lib/assets/gallery/11.webp';
+	import photo10 from '$lib/assets/gallery/10.webp';
+	import photo11 from '$lib/assets/gallery/11.webp';
+
 	import PhotoSwipeLightBox from 'photoswipe/lightbox';
 	import PhotoSwipe from 'photoswipe';
 	import 'photoswipe/style.css';
@@ -29,7 +30,7 @@
 
 	const photos = [
 		{
-			src: photo5,
+			src: photo10,
 			width: 1200,
 			height: 1800
 		},
@@ -49,9 +50,9 @@
 			height: 1333
 		},
 		{
-			src: photo1,
+			src: photo5,
 			width: 1200,
-			height: 1790
+			height: 1800
 		},
 		{
 			src: photo6,
@@ -74,7 +75,7 @@
 			height: 1790
 		},
 		{
-			src: photo10,
+			src: photo11,
 			width: 1200,
 			height: 1790
 		}
