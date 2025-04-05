@@ -1,10 +1,10 @@
 <script lang="ts">
 	import locationTopWave from '$lib/assets/location-top-wave.svg';
-	
+
 	import locationDeco from '$lib/assets/location-deco.svg';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
-	import { Clipboard } from '@lucide/svelte';
+	import { Clipboard, Github } from '@lucide/svelte';
 	import { PUBLIC_GOOGLE_MAPS_API_KEY } from '$env/static/public';
 
 	const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=${PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent('108 Lamplighter, Irvine, CA 92620')}`;
@@ -37,6 +37,9 @@
 		></iframe>
 	</div>
 	<p class="signature en">made with ♡ by Emily & Anthony</p>
+	<a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
+		><Github size="1.1em" strokeWidth={1} /></a
+	>
 	<img class="location-deco" src={locationDeco} alt="" />
 </section>
 
@@ -53,7 +56,7 @@
 		align-items: center;
 		position: relative;
 		background-color: $bg-color-1;
-		padding: 1em 2em 2em 2em;
+		padding: 1em 2em 1em 2em;
 	}
 
 	h2.title {
@@ -87,6 +90,7 @@
 			height: 1em;
 			display: inline-block;
 			margin-right: 0.2em;
+			color: $font-color-default;
 		}
 
 		.address {
@@ -111,14 +115,18 @@
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
 
-
 	p.signature {
 		font-size: 1rem;
+	}
+	.github-icon {
+		margin-top: 0.2em;
+		color: $font-color-default;
+		cursor: pointer;
 	}
 
 	img.location-deco {
 		position: absolute;
-		bottom: 2.4em;
-		right: 1.3em;
+		bottom: 2.5em;
+		right: 1.5em;
 	}
 </style>
