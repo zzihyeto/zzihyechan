@@ -14,7 +14,7 @@
 	"rsvp": {
 		"title": "참석여부 회신",
 		"reply_by": "5월 16일까지 답변 부탁드립니다.",
-		"fullname_placeholder": "영문 성함",
+		"fullname_placeholder": "영문 성함 (예: Ah-Young Phee)",
 		"send": "보내기",
 		"missing_name_error": "성함을 입력해주세요.",
 		"missing_rsvp_error": "참석 여부를 선택해주세요.",

@@ -21,8 +21,6 @@
 			form = null;
 		}
 	}
-
-	$inspect('form', form);
 </script>
 
 <section class="rsvp">
@@ -148,7 +146,6 @@
 	input.fullname {
 		padding: 0.4em 0.8em;
 		width: 100%;
-		height: 2.5em;
 		border: 1px solid $white-2;
 		border-radius: 4px;
 		letter-spacing: 0.02em;
@@ -159,6 +156,9 @@
 		}
 		&::placeholder {
 			color: $font-color-light;
+		}
+		&.kr::placeholder {
+			font-size: 0.9rem;
 		}
 	}
 
@@ -206,6 +206,9 @@
 	}
 
 	.spinning {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		animation: spin 1s linear infinite;
 	}
 

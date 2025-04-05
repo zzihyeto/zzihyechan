@@ -14,7 +14,11 @@
 
 	const select = new Select<'yes' | 'no'>({
 		onValueChange: (value) => {
-			rsvp = value ?? null;
+			if (rsvp !== undefined && rsvp === value) {
+				rsvp = null;
+			} else {
+				rsvp = value ?? null;
+			}
 			clearForm();
 		},
 		value: () => rsvp ?? undefined
@@ -75,6 +79,11 @@
 
 		&.not-selected {
 			color: $font-color-light;
+
+			&.kr {
+				font-size: 0.9rem;
+				height: 2.75em;
+			}
 		}
 
 		&.opened {

@@ -9,7 +9,6 @@
 
 	function setSectionHeight() {
 		sectionHeight = window.innerHeight < maxSectionHeight ? window.innerHeight : maxSectionHeight;
-		console.log(`setting sectionHeight: ${sectionHeight}`);
 	}
 
 	if (browser && window.matchMedia('(max-width: 1024px)')) {
