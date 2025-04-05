@@ -1,5 +1,6 @@
 <script lang="ts">
 	import locationTopWave from '$lib/assets/location-top-wave.svg';
+	
 	import locationDeco from '$lib/assets/location-deco.svg';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
@@ -109,6 +110,7 @@
 		border-radius: 8px;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
+
 
 	p.signature {
 		font-size: 1rem;
