@@ -31,7 +31,7 @@
 	/>
 	<meta property="og:title" content="Emily & Anthony's Wedding" />
 	<meta property="og:description" content="Please join us on our most special day!" />
-	<meta property="og:image" content="/src/lib/assets/preview.webp" />
+	<meta property="og:image" content="/src/lib/assets/preview.jpg" />
 	<meta property="og:type" content="website" />
 </svelte:head>
 
