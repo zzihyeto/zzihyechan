@@ -18,6 +18,7 @@
 </script>
 
 <svelte:head>
+	<title>{title}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -28,10 +29,10 @@
 		rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 	/>
-	<meta property="og:title" content={title} />
-	<!-- <meta property="og:description" content="You're invited to our most special day!" />
-  <meta property="og:image" content={image} />
-  <meta property="og:type" content="website" /> -->
+	<meta property="og:title" content="Emily & Anthony's Wedding" />
+	<meta property="og:description" content="Please join us on our most special day!" />
+	<meta property="og:image" content="%sveltekit.assets%/preview.webp" />
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 {#if localeLoaded}
