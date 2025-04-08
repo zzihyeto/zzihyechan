@@ -1,3 +1,6 @@
-# 모바일 청첩장 (Mobile-first wedding invitation)
+# 우리의 모바일 청첩장
 
-[https://emily-marries-anthony.com](https://emily-marries-anthony.com)
+The mobile-first wedding invitation to our wedding. 
+
+[Korean version](https://emily-marries-anthony.com)
+[English](https://emily-marries-anthony.com/?lang=en)
