@@ -3,14 +3,15 @@
 	import { localeStore } from '../i18n.svelte';
 	import { LoaderCircle } from '@lucide/svelte';
 	import { enhance } from '$app/forms';
-	import RsvpSelect from './rsvp-select.svelte';
 	import rsvpDeco from '$lib/assets/rsvp-deco.svg';
 	import RsvpAccordion from './rsvp-accordion.svelte';
+	import RsvpModal from './rsvp-modal.svelte';
 
 	let { form } = $props();
 
 	let rsvp = $state<'yes' | 'no' | null>(null);
 	let submitting = $state(false);
+	let showModal = $state(false);
 
 	function clearValidationMessage(formInput: 'name' | 'rsvp') {
 		if (formInput === 'name' && form?.missingName) {
@@ -26,49 +27,15 @@
 <section class="rsvp">
 	<div class="header">
 		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
-		<h2 class="title {localeStore.locale}">{$_('rsvp.title')}</h2>
+		<h2 class="title {localeStore.locale}">참석 의사 체크</h2>
 		<p class="sub-title {localeStore.locale}">
 			{$_('rsvp.reply_by')}
 		</p>
 	</div>
 
-	<form
-		class="rsvp-form"
-		method="POST"
-		action="?/rsvp"
-		use:enhance={({ formData }) => {
-			submitting = true;
-			formData.append('rsvp', rsvp ?? '');
-			return ({ update, result }) => {
-				update({}).finally(() => {
-					submitting = false;
-					if (result.status === 200) {
-						rsvp = null;
-					}
-				});
-			};
-		}}
-	>
-		<input
-			class="fullname {localeStore.locale}"
-			name="fullname"
-			value={form?.name ?? ''}
-			placeholder={$_('rsvp.fullname_placeholder')}
-			onfocus={() => clearValidationMessage('name')}
-		/>
-		<div class="select-container">
-			<RsvpSelect bind:rsvp clearForm={() => clearValidationMessage('rsvp')} />
-		</div>
-		<button class="send {localeStore.locale}" type="submit" disabled={submitting}>
-			{#if submitting}
-				<div class="spinning">
-					<LoaderCircle />
-				</div>
-			{:else}
-				{$_('rsvp.send')}
-			{/if}
-		</button>
-	</form>
+	<button class="check-attendance-btn" on:click={() => showModal = true}>
+		참석의사체크하기
+	</button>
 	<div class="submit-message">
 		{#if form?.success}
 			<p class="success {localeStore.locale}">
@@ -96,6 +63,10 @@
 		<RsvpAccordion />
 	</div>
 </section>
+
+{#if showModal}
+	<RsvpModal on:close={() => showModal = false} />
+{/if}
 
 <style lang="scss">
 	section.rsvp {
@@ -139,8 +110,26 @@
 		}
 	}
 
-	form.rsvp-form {
+	.check-attendance-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		margin-top: 3em;
+		height: 2.5em;
+		width: 100%;
+		background-color: $primary-color;
+		border-radius: 4px;
+		color: $white;
+		letter-spacing: 0.05em;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+		font-weight: 600;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: $primary-color-dark;
+		}
 	}
 
 	input.fullname {
@@ -215,6 +204,7 @@
 	.submit-message {
 		margin-top: 0.5em;
 		height: 1.5em;
+		text-align: center;
 
 		.kr {
 			font-size: 0.9rem;

@@ -21,6 +21,18 @@
 
 	const dressCodeItem = accordion.getItem(items[0]);
 	const menuItem = accordion.getItem(items[1]);
+
+	let copied = $state(false);
+
+	function copyAccount() {
+		const accountNumber = '기업 54104699902029';
+		navigator.clipboard.writeText(accountNumber).then(() => {
+			copied = true;
+			setTimeout(() => {
+				copied = false;
+			}, 2000);
+		});
+	}
 </script>
 
 {#snippet accordionItem(item: ReturnType<Accordion['getItem']>, content: Snippet)}
@@ -52,13 +64,20 @@
 {/snippet}
 
 {#snippet menuContent()}
-	<p class="menu-title">{$_('rsvp.accordion.menu_title')}</p>
-	<p class="beef">{$_('rsvp.accordion.beef')}</p>
-	<p>&</p>
-	<p class="fish">{$_('rsvp.accordion.fish')}</p>
+	<p class="menu-title">{$_('rsvp.accordion.the_menu')}</p>
+	<div class="account-container">
+		<p class="beef">{$_('rsvp.accordion.account_number')}</p>
+	</div>
+	<p class="fish">{$_('rsvp.accordion.account_name')}</p>
 	<p class="vegetarian">
-		{$_('rsvp.accordion.vegetarian')}
+		{$_('rsvp.accordion.footer_letter')}
 	</p>
+	<button class="copy-btn" on:click={() => copyAccount()}>
+		{$_('rsvp.accordion.copy_account')}
+	</button>
+	{#if copied}
+		<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
+	{/if}
 {/snippet}
 
 <div class="accordion-root" {...accordion.root}>
@@ -172,5 +191,35 @@
 				margin-top: 1.5em;
 			}
 		}
+	}
+
+	.account-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.copy-btn {
+		background-color: $primary-color;
+		color: $white;
+		border: none;
+		border-radius: 4px;
+		padding: 0.3em 0.8em;
+		font-size: 0.8rem;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+
+		&:hover {
+			background-color: $primary-color-dark;
+		}
+	}
+
+	.copied-message {
+		color: $green-1;
+		font-size: 0.8rem;
+		margin-top: 0.5em;
+		text-align: center;
 	}
 </style>

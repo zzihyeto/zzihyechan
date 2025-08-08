@@ -32,7 +32,7 @@
 
 	<div class="names-kr-box">
 		<span class="names kr">임찬교</span>
-		<span class="names kr">그리고고</span>
+		<span class="names kr">그리고</span>
 		<span class="names kr">이지혜</span>
 	</div>
 

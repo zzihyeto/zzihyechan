@@ -2,21 +2,27 @@ import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 
 // Google Apps Script Web App URL (설정 후 업데이트 필요)
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_0DNpYxxKEfU5pflrkBXtNSAyhDezhcRWIeFIwBctytA_GEtcrEdv7QZglKV_L2h5/exec';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyIf9qO5Pbo9fjXLe8tYGVCR1o4-3q9IZqsk6bB3BDQwpt3MKtuYF5bl9ZlvEZkwk4w/exec';
 
 export const actions = {
 	rsvp: async ({ request }) => {
 		const formData = await request.formData();
-		const name = formData.get('fullname')?.toString().trim();
-		const rsvp = formData.get('rsvp')?.toString();
+		const guestType = formData.get('guestType')?.toString();
+		const name = formData.get('name')?.toString().trim();
+		const attendance = formData.get('attendance')?.toString();
+		const phoneNumber = formData.get('phoneNumber')?.toString().trim();
 		const timestamp = new Date().toISOString();
+
+		if (!guestType) {
+			return fail(400, { missingGuestType: true });
+		}
 
 		if (!name) {
 			return fail(400, { missingName: true });
 		}
 
-		if (!rsvp) {
-			return fail(400, { missingRsvp: true });
+		if (!attendance) {
+			return fail(400, { missingAttendance: true });
 		}
 
 		try {
@@ -27,14 +33,16 @@ export const actions = {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
+					guestType: guestType,
 					name: name,
-					rsvp: rsvp,
+					attendance: attendance,
+					phoneNumber: phoneNumber || '',
 					timestamp: timestamp
 				})
 			});
 
 			if (response.ok) {
-				console.log(`RSVP from ${name}: ${rsvp} - Sent to Google Sheets`);
+				console.log(`RSVP from ${name} (${guestType}): ${attendance} - Sent to Google Sheets`);
 				return { success: true };
 			} else {
 				console.error('Failed to send to Google Sheets');

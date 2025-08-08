@@ -30,10 +30,11 @@
 			"semi_formal": "교회이므로 화한은 정중히 사양합니다",
 			"suit_and_tie": "화환 대신 마음으로 감사히 받겠습니다",
 			"the_menu": "마음 전하실 곳",
-			"menu_title": "계좌 번호",
-			"beef": "기업 54104699902029",
-			"fish": "이지혜",
-			"vegetarian": "받은 사랑 나누도록 하겠습니다. 감사합니다 :)"
+			"account_number": "기업 54104699902029",
+			"account_name": "이지혜",
+			"footer_letter": "받은 사랑 앞으로 나누겠습니다. 감사합니다 :)",
+			"copy_account": "계좌번호 복사",
+			"account_copied": "계좌번호가 복사되었습니다."
 		}
 	},
 	"gallery": {

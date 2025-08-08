@@ -21,24 +21,17 @@
 		<p class="letter {localeStore.locale}">{$_('letter.letter_content')}</p>
 		<p class="spacing"> </p>
 
-		{#if localeStore.isEn}
-			<div class="letter-signature">
-				<p class="en">with love</p>
-				<p class="en">Jihye & ChanGyo</p>
-			</div>
-		{:else}
-			<div class="family-description kr">
-				<p>
-					임희종<span class="name-divider">{@html nameDivider}</span> 고수기
-					<span class="son">의 아들</span>임찬교
-				</p>
-				<p>
-					이찬욱<span class="name-divider">{@html nameDivider}</span> 김정임<span class="daughter"
-						>의 딸</span
-					>이지혜
-				</p>
-			</div>
-		{/if}
+		<div class="family-description kr">
+			<p>
+				임희종<span class="name-divider">{@html nameDivider}</span> 고수기
+				<span class="son">의 아들</span>임찬교
+			</p>
+			<p>
+				이찬욱<span class="name-divider">{@html nameDivider}</span> 김정임<span class="daughter"
+					>의 딸</span
+				>이지혜
+			</p>
+		</div>
 	</div>
 </section>
 

@@ -110,7 +110,7 @@
 
 <style lang="scss">
 	section.gallery {
-		padding: 4.5em 2em 2em 2em;
+		padding: 2em 2em 2em 2em;
 		background-color: $white;
 	}
 

@@ -23,6 +23,44 @@
 		window.open(url, '_blank');
 	}
 
+	function shareKakaoTalk() {
+		const url = window.location.href;
+		const text = '임찬교와 이지혜의 결혼식에 초대합니다!';
+		
+		// KakaoTalk 앱으로 직접 공유 (모바일에서만 작동)
+		if (navigator.share) {
+			navigator.share({
+				title: '임찬교와 이지혜의 결혼식에 초대합니다!',
+				text: text,
+				url: url
+			}).catch(() => {
+				// Web Share API가 지원되지 않거나 취소된 경우
+				// 클립보드에 복사하고 안내
+				navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+					alert('청첩장 정보가 복사되었습니다. 카카오톡에서 붙여넣기 해주세요.');
+				}).catch(() => {
+					alert('복사에 실패했습니다.');
+				});
+			});
+		} else {
+			// Web Share API가 지원되지 않는 경우
+			navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+				alert('청첩장 정보가 복사되었습니다. 카카오톡에서 붙여넣기 해주세요.');
+			}).catch(() => {
+				alert('복사에 실패했습니다.');
+			});
+		}
+	}
+
+	function copyInvitationLink() {
+		const url = window.location.href;
+		navigator.clipboard.writeText(url).then(() => {
+			alert('청첩장 주소가 복사되었습니다!');
+		}).catch(() => {
+			alert('복사에 실패했습니다.');
+		});
+	}
+
 	onMount(() => {
 		// 신규 네이버 지도 API 스크립트 로드
 		const script = document.createElement('script');
@@ -31,15 +69,13 @@
 			// 네이버 지도 초기화
 			const map = new (window as any).naver.maps.Map('naver-map', {
 				center: new (window as any).naver.maps.LatLng(37.44436582740946, 127.1599992535768), // 성남 혜성 감리 교회 좌표 (임시)
-				zoom: 16,
+				zoom: 15,
 				mapTypeControl: false,
 				scaleControl: false,
 				logoControl: false,
 				mapDataControl: false,
-				zoomControl: true,
-				zoomControlOptions: {
-					position: (window as any).naver.maps.Position.TOP_RIGHT
-				}
+				zoomControl: false,
+				panControl: false
 			});
 
 			// 마커 추가 (압정 모양)
@@ -95,6 +131,16 @@
 			</button>
 		</div>
 	</div>
+	
+	<div class="invitation-share">
+		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
+			카카오톡으로 청첩장 전하기
+		</button>
+		<button class="share-button copy-link" onclick={copyInvitationLink}>
+			청첩장 주소 복사하기
+		</button>
+	</div>
+	
 	<p class="copyright">© 2026. zzihyechan All rights reserved.</p>
 	<a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
 		><Github size="1.1em" strokeWidth={1} /></a
@@ -177,16 +223,15 @@
 	.map-container {
 		margin-top: 2em;
 		width: 100%;
-		height: 16em;
+		height: 20em;
 		margin-bottom: 7em;
-		border-radius: 8px;
+		border-radius: 12px;
 		overflow: hidden;
-		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
 
 	.naver-map {
 		width: 100%;
-		height: 12em;
+		height: 16em;
 	}
 
 	.map-share {
@@ -225,6 +270,35 @@
 		}
 	}
 
+	.invitation-share {
+		margin-top: 2em;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		width: 100%;
+		max-width: 400px;
+	}
+
+	.share-button.kakao-talk {
+		background-color: #fee500;
+		color: #3c1e1e;
+		padding: 1em 1.5em;
+
+		&:hover {
+			background-color: #fdd835;
+		}
+	}
+
+	.share-button.copy-link {
+		background-color: $primary-color;
+		color: white;
+		padding: 1em 1.5em;
+
+		&:hover {
+			background-color: $primary-color-dark;
+		}
+	}
+
 	p.signature {
 		font-size: 1rem;
 	}
@@ -233,7 +307,7 @@
 		font-size: 0.8rem;
 		color: $font-color-default;
 		opacity: 0.7;
-		margin-top: 0.5em;
+		margin-top: 2em;
 	}
 	
 	.github-icon {
