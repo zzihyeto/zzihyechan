@@ -1,15 +1,15 @@
 import type { Actions } from './$types';
-import { Resend } from 'resend';
-import { env } from '$env/dynamic/private';
 import { fail } from '@sveltejs/kit';
 
-const resend = new Resend(env.RESEND_API_KEY);
+// Google Apps Script Web App URL (설정 후 업데이트 필요)
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_0DNpYxxKEfU5pflrkBXtNSAyhDezhcRWIeFIwBctytA_GEtcrEdv7QZglKV_L2h5/exec';
 
 export const actions = {
 	rsvp: async ({ request }) => {
 		const formData = await request.formData();
 		const name = formData.get('fullname')?.toString().trim();
 		const rsvp = formData.get('rsvp')?.toString();
+		const timestamp = new Date().toISOString();
 
 		if (!name) {
 			return fail(400, { missingName: true });
@@ -19,17 +19,30 @@ export const actions = {
 			return fail(400, { missingRsvp: true });
 		}
 
-		const { data, error } = await resend.emails.send({
-			from: env.FROM_EMAIL,
-			to: env.TO_EMAIL,
-			subject: `[Wedding Invitation] RSVP - ${name}`,
-			text: `${rsvp}`
-		});
+		try {
+			// Google Apps Script로 데이터 전송
+			const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					name: name,
+					rsvp: rsvp,
+					timestamp: timestamp
+				})
+			});
 
-		if (error) {
-			return fail(400, { name, emailError: true });
+			if (response.ok) {
+				console.log(`RSVP from ${name}: ${rsvp} - Sent to Google Sheets`);
+				return { success: true };
+			} else {
+				console.error('Failed to send to Google Sheets');
+				return fail(500, { error: 'Failed to save RSVP' });
+			}
+		} catch (error) {
+			console.error('Error sending RSVP:', error);
+			return fail(500, { error: 'Failed to save RSVP' });
 		}
-
-		return { success: true };
 	}
 } satisfies Actions;

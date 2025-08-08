@@ -22,7 +22,13 @@
 			gallery: '#gallery',
 			children: 'a',
 			showHideAnimationType: 'fade',
-			pswpModule: PhotoSwipe
+			pswpModule: PhotoSwipe,
+			allowPanToNext: true,
+			allowMouseDrag: true,
+			allowTouchDrag: true,
+			showHideOpacity: true,
+			spacing: 0.1,
+			loop: true
 		});
 
 		lightbox.init();

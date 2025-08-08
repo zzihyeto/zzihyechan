@@ -19,22 +19,23 @@
 
 	<div class="letter-container">
 		<p class="letter {localeStore.locale}">{$_('letter.letter_content')}</p>
+		<p class="spacing"> </p>
 
 		{#if localeStore.isEn}
 			<div class="letter-signature">
 				<p class="en">with love</p>
-				<p class="en">Emily & Anthony</p>
+				<p class="en">Jihye & ChanGyo</p>
 			</div>
 		{:else}
 			<div class="family-description kr">
 				<p>
-					박주용<span class="name-divider">{@html nameDivider}</span> 김명숙
-					<span class="son">의 아들</span>박건희
+					임희종<span class="name-divider">{@html nameDivider}</span> 고수기
+					<span class="son">의 아들</span>임찬교
 				</p>
 				<p>
-					피세광<span class="name-divider">{@html nameDivider}</span> 윤은주<span class="daughter"
+					이찬욱<span class="name-divider">{@html nameDivider}</span> 김정임<span class="daughter"
 						>의 딸</span
-					>피아영
+					>이지혜
 				</p>
 			</div>
 		{/if}
@@ -61,7 +62,7 @@
 	}
 
 	.title {
-		color: $primary-color;
+		color: black;
 		letter-spacing: 1px;
 
 		&.kr {
@@ -110,7 +111,7 @@
 	}
 
 	.family-description {
-		margin-top: 2em;
+		margin-top: 3em;
 		p {
 			color: $font-color-default;
 			display: grid;
