@@ -92,7 +92,7 @@
 			// 정보창 추가
 			const infoWindow = new (window as any).naver.maps.InfoWindow({
 				content: '<div style="padding:10px;min-width:200px;text-align:center;">' +
-					'<h3 style="margin:0 0 5px 0;color:#4CAF50;">성남 혜성 감리 교회</h3>' +
+					'<h3 style="margin:0 0 5px 0;color:#4CAF50;">성남 혜성 감리 교회 3층 본당</h3>' +
 					'<p style="margin:0;font-size:12px;">경기 성남시 중원구 광명로 304</p>' +
 					'</div>'
 			});
@@ -113,7 +113,7 @@
 <img src={locationTopWave} class="location-top-wave" alt="" />
 <section class="location">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
-	<h3 class="venue en">성남 혜성 감리 교회</h3>
+	<h3 class="venue en">성남 혜성 감리 교회 3층 본당</h3>
 	<div class="address-container">
 		<span class="address">경기 성남시 중원구 광명로 304</span>
 		<button class="copy-button" onclick={copyAddress}>

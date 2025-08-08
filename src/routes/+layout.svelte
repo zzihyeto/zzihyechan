@@ -32,7 +32,7 @@
 	<meta property="og:title" content="ChanGyo & JiHye's Wedding" />
 	<meta property="og:description" content="Please join us on our most special day!" />
 	<meta property="og:image" content="https://emily-marries-anthony.com/preview.jpg" />
-	<meta property="og:url" content="https://emily-marries-anthony.com/" />
+	<meta property="og:url" content="https://zzihyechanwedding.netlify.app" />
 	<meta property="og:type" content="website" />
 </svelte:head>
 
