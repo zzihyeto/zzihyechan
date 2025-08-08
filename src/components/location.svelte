@@ -133,9 +133,9 @@
 	</div>
 	
 	<div class="invitation-share">
-		<!-- <button class="share-button kakao-talk" onclick={shareKakaoTalk}>
+		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
 			카카오톡으로 청첩장 전하기
-		</button>-->
+		</button>
 		<button class="share-button copy-link" onclick={copyInvitationLink}>
 			청첩장 주소 복사하기
 		</button>
