@@ -32,7 +32,8 @@
 			"the_menu": "마음 전하실 곳",
 			"account_number": "기업 54104699902029",
 			"account_name": "이지혜",
-			"footer_letter": "받은 사랑 앞으로 나누겠습니다. 감사합니다 :)",
+			"footer_letter1": "받은 사랑 앞으로 나누겠습니다.",
+			"footer_letter2": "감사합니다 :)",
 			"copy_account": "계좌번호 복사",
 			"account_copied": "계좌번호가 복사되었습니다."
 		}

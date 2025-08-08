@@ -11,17 +11,17 @@
 </script>
 
 <section class="letter">
-	<div class="header">
+	<div class="header scroll-animate">
 		<img class="header-deco" src={letterDeco} alt="letter header deco" />
 		<h2 class="title {localeStore.locale}">{$_('letter.date')}</h2>
 		<p class="sub-title {localeStore.locale}">{$_('letter.sub_title')}</p>
 	</div>
 
-	<div class="letter-container">
-		<p class="letter {localeStore.locale}">{$_('letter.letter_content')}</p>
-		<p class="spacing"> </p>
+	<div class="letter-container scroll-animate">
+		<p class="letter {localeStore.locale} scroll-animate">{$_('letter.letter_content')}</p>
+		<p class="spacing scroll-animate"> </p>
 
-		<div class="family-description kr">
+		<div class="family-description kr scroll-animate">
 			<p>
 				임희종<span class="name-divider">{@html nameDivider}</span> 고수기
 				<span class="son">의 아들</span>임찬교
@@ -33,9 +33,9 @@
 			</p>
 		</div>
 	</div>
+	
+	<img class="letter-bottom scroll-animate" src={letterBottom} alt="letter bottom" />
 </section>
-
-<img class="letter-bottom" src={letterBottom} alt="letter bottom" />
 
 <style lang="scss">
 	section.letter {
@@ -47,6 +47,18 @@
 		flex-direction: column;
 		align-items: center;
 		margin-bottom: 2em;
+	}
+
+	.scroll-animate {
+		opacity: 0;
+		transform: translateY(60px) scale(0.5);
+		transition: opacity 1s ease-out, transform 1s ease-out;
+		will-change: opacity, transform;
+
+		&.animate-in {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
 	}
 
 	img.header-deco {

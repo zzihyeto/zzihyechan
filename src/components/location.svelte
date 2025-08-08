@@ -120,9 +120,9 @@
 			<Clipboard size="1.1em" />
 		</button>
 	</div>
-	<div class="map-container">
-		<div id="naver-map" class="naver-map"></div>
-		<div class="map-share">
+	<div class="map-section">
+		<div id="naver-map" class="naver-map-wide"></div>
+		<div class="map-buttons">
 			<button class="share-button naver" onclick={shareNaverMap}>
 				네이버 지도
 			</button>
@@ -133,19 +133,20 @@
 	</div>
 	
 	<div class="invitation-share">
-		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
+		<!-- <button class="share-button kakao-talk" onclick={shareKakaoTalk}>
 			카카오톡으로 청첩장 전하기
-		</button>
+		</button>-->
 		<button class="share-button copy-link" onclick={copyInvitationLink}>
 			청첩장 주소 복사하기
 		</button>
 	</div>
 	
 	<p class="copyright">© 2026. zzihyechan All rights reserved.</p>
-	<a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
-		><Github size="1.1em" strokeWidth={1} /></a
-	>
+	<!-- <a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
+	 	><Github size="1.1em" strokeWidth={1} /></a
+	> 
 	<img class="location-deco" src={locationDeco} alt="" />
+	-->
 </section>
 
 <style lang="scss">
@@ -220,26 +221,32 @@
 		}
 	}
 
-	.map-container {
+	.map-section {
 		margin-top: 2em;
 		width: 100%;
-		height: 20em;
-		margin-bottom: 7em;
+		height: 25em;
+		position: relative;
 		border-radius: 12px;
 		overflow: hidden;
 	}
 
-	.naver-map {
+	.naver-map-wide {
 		width: 100%;
-		height: 16em;
+		height: 100%;
 	}
 
-	.map-share {
-		background-color: $white;
+	.map-buttons {
+		background-color: rgba(255, 255, 255, 0.95);
 		padding: 1em;
 		display: flex;
 		gap: 1em;
 		justify-content: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		backdrop-filter: blur(5px);
 	}
 
 	.share-button {

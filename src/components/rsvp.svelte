@@ -25,7 +25,7 @@
 </script>
 
 <section class="rsvp">
-	<div class="header">
+	<div class="header scroll-animate">
 		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
 		<h2 class="title {localeStore.locale}">참석 의사 체크</h2>
 		<p class="sub-title {localeStore.locale}">
@@ -33,10 +33,10 @@
 		</p>
 	</div>
 
-	<button class="check-attendance-btn" on:click={() => showModal = true}>
+	<button class="check-attendance-btn scroll-animate" on:click={() => showModal = true}>
 		참석의사체크하기
 	</button>
-	<div class="submit-message">
+	<div class="submit-message scroll-animate">
 		{#if form?.success}
 			<p class="success {localeStore.locale}">
 				{$_('rsvp.email_success')}
@@ -59,7 +59,7 @@
 		{/if}
 	</div>
 
-	<div class="accordion-container">
+	<div class="accordion-container scroll-animate">
 		<RsvpAccordion />
 	</div>
 </section>
@@ -77,6 +77,18 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.scroll-animate {
+		opacity: 0;
+		transform: translateY(60px) scale(0.5);
+		transition: opacity 1s ease-out, transform 1s ease-out;
+		will-change: opacity, transform;
+
+		&.animate-in {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
 	}
 
 	img.header-deco {

@@ -13,8 +13,8 @@
 
 	onMount(() => {
 		const observerOptions = {
-			threshold: 0.1,
-			rootMargin: '0px 0px -50px 0px'
+			threshold: 0.2,
+			rootMargin: '0px 0px -100px 0px'
 		};
 
 		const observer = new IntersectionObserver((entries) => {
@@ -34,23 +34,14 @@
 	});
 </script>
 
-<Cover class="scroll-animate" />
-<Letter class="scroll-animate" />
-<Rsvp {form} class="scroll-animate" />
-<Gallery class="scroll-animate" />
-<Calendar class="scroll-animate" />
-<Location class="scroll-animate" />
+<Cover />
+<Letter />
+<Rsvp {form} />
+<Gallery />
+<Calendar />
+<Location />
 <AudioPlayer />
 
 <style lang="scss">
-	.scroll-animate {
-		opacity: 0;
-		transform: translateY(30px);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-		&.animate-in {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+	
 </style>
