@@ -113,7 +113,7 @@
 <img src={locationTopWave} class="location-top-wave" alt="" />
 <section class="location">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
-	<h3 class="venue en">성남 혜성 감리 교회 3층 본당</h3>
+	<p class="venue">성남 혜성 감리 교회 3층 본당</p>
 	<div class="address-container">
 		<span class="address">경기 성남시 중원구 광명로 304</span>
 		<button class="copy-button" onclick={copyAddress}>
@@ -181,13 +181,12 @@
 		}
 	}
 
-	h3.venue {
-		&.en {
-			font-size: 1.5rem;
-			font-weight: 600;
-			color: black;
-			margin-bottom: 0.5em;
-		}
+	.venue {
+		text-align: center;
+		color: $font-color-default;
+		font-size: 1rem;
+		font-weight: 500;
+		margin-bottom: 1.5em;
 	}
 
 	.address-container {
@@ -201,7 +200,7 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 		.address {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			color: $font-color-default;
 		}
 

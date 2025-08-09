@@ -18,7 +18,9 @@
 	</div>
 
 	<div class="letter-container scroll-animate">
-		<p class="letter {localeStore.locale} scroll-animate">{$_('letter.letter_content')}</p>
+		<p class="letter {localeStore.locale} scroll-animate">
+			{@html $_('letter.letter_content').replace(/\r?\n/g, '<br>')}
+		</p>
 		<p class="spacing scroll-animate"> </p>
 
 		<div class="family-description kr scroll-animate">

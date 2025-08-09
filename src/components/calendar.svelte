@@ -110,7 +110,7 @@
 	</div>
 	
 	<div class="wedding-day-message">
-		❤️ 결혼식이 {days === 0 ? '오늘' : `D-${days} 후에`} 진행됩니다
+		❤️ 결혼식이 {days === 0 ? '오늘' : `D-${days} 후에`} 진행됩니다 ❤️
 	</div>
 </section>
 

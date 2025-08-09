@@ -11,16 +11,18 @@
 	}>;
 
 	const items: Item[] = [
-		{ id: '1', title: $_('rsvp.accordion.dress_code') },
-		{ id: '2', title: $_('rsvp.accordion.the_menu') }
+		{ id: '1', title: $_('rsvp.accordion.parking') },
+		{ id: '2', title: $_('rsvp.accordion.flower') },
+		{ id : '3', title: $_('rsvp.accordion.account')}
 	];
 
 	const accordion = new Accordion({
 		multiple: true
 	});
 
-	const dressCodeItem = accordion.getItem(items[0]);
-	const menuItem = accordion.getItem(items[1]);
+	const parkingItem = accordion.getItem(items[0]);
+	const flowerItem = accordion.getItem(items[1]);
+	const accountItem = accordion.getItem(items[2]);
 
 	let copied = $state(false);
 
@@ -58,18 +60,42 @@
 	</div>
 {/snippet}
 
-{#snippet dressCodeContent()}
-	<p class="semi-formal">{$_('rsvp.accordion.semi_formal')}</p>
-	<p>{$_('rsvp.accordion.suit_and_tie')}</p>
+{#snippet parkingContent()}
+	<p>{$_('rsvp.accordion.parking_letter1')}</p>
+	<br>
+	<p>{$_('rsvp.accordion.parking_letter2')}</p>
+	<p>{$_('rsvp.accordion.parking_letter3')}</p>
 {/snippet}
 
-{#snippet menuContent()}
-	<p class="menu-title">{$_('rsvp.accordion.the_menu')}</p>
+{#snippet flowerContent()}
+	<p>{$_('rsvp.accordion.flower_letter1')}</p>
+	<br>
+	<p class="top_margin">{$_('rsvp.accordion.flower_letter2')}</p>
+{/snippet}
+
+{#snippet accountContent()}
 	<div class="account-container">
-		<p class="beef">{$_('rsvp.accordion.account_number')}</p>
+		<p>{$_('rsvp.accordion.account_number')}</p>
+		<p>{$_('rsvp.accordion.account_name')}</p>
+		<button class="copy-btn" on:click={() => copyAccount()}>
+			{$_('rsvp.accordion.copy_account')}
+		</button>
+		{#if copied}
+			<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
+		{/if}
+		<br>
+		<p>{$_('rsvp.accordion.footer_letter1')}</p>
+		<p>{$_('rsvp.accordion.footer_letter2')}</p>
 	</div>
-	<p class="fish">{$_('rsvp.accordion.account_name')}</p>
-	<p class="vegetarian">
+{/snippet}
+
+<!--{#snippet accountContent()}
+	<p class="account-title">{$_('rsvp.accordion.account')}</p>
+	<div class="account-container">
+		<p class="account_number">{$_('rsvp.accordion.account_number')}</p>
+	</div>
+	<p class="account_name">{$_('rsvp.accordion.account_name')}</p>
+	<p class="footer_letter">
 		{$_('rsvp.accordion.footer_letter')}
 	</p>
 	<button class="copy-btn" on:click={() => copyAccount()}>
@@ -78,11 +104,12 @@
 	{#if copied}
 		<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
 	{/if}
-{/snippet}
+{/snippet}-->
 
 <div class="accordion-root" {...accordion.root}>
-	{@render accordionItem(dressCodeItem, dressCodeContent)}
-	{@render accordionItem(menuItem, menuContent)}
+	{@render accordionItem(parkingItem, parkingContent)}
+	{@render accordionItem(flowerItem, flowerContent)}
+	{@render accordionItem(accountItem, accountContent)}
 </div>
 
 <style lang="scss">
@@ -103,13 +130,6 @@
 		color: $primary-color;
 		width: 100%;
 
-		&.en {
-			letter-spacing: 1px;
-			font-weight: 600;
-			font-size: 1.3rem;
-			padding: 0.6em 0;
-		}
-
 		&.kr {
 			letter-spacing: 1px;
 			font-weight: 500;
@@ -125,10 +145,6 @@
 		right: 0.6em;
 		color: $primary-color;
 		transition: transform 350ms ease;
-
-		&.en {
-			top: 1.05em;
-		}
 
 		&.kr {
 			top: 0.9em;
@@ -148,49 +164,6 @@
 		p {
 			text-align: center;
 		}
-
-		&.en p {
-			font-size: 1.1rem;
-
-			&.semi-formal {
-				margin-bottom: 0.5em;
-			}
-
-			&.menu-title {
-				margin-bottom: 1em;
-			}
-
-			&.beef,
-			&.fish {
-				font-weight: 700;
-			}
-
-			&.vegetarian {
-				margin-top: 1em;
-			}
-		}
-
-		&.kr p {
-			font-size: 0.9rem;
-
-			&:not(:last-child) {
-				margin-bottom: 0.5em;
-			}
-
-			&.semi-formal,
-			&.menu-title {
-				margin-bottom: 1.5em;
-			}
-
-			&.beef,
-			&.fish {
-				font-weight: 600;
-			}
-
-			&.vegetarian {
-				margin-top: 1.5em;
-			}
-		}
 	}
 
 	.account-container {
@@ -206,7 +179,7 @@
 		color: $white;
 		border: none;
 		border-radius: 4px;
-		padding: 0.3em 0.8em;
+		padding: 0.5em 0.8em;
 		font-size: 0.8rem;
 		cursor: pointer;
 		transition: background-color 0.2s ease;

@@ -27,8 +27,8 @@
 <section class="rsvp">
 	<div class="header scroll-animate">
 		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
-		<h2 class="title {localeStore.locale}">참석 의사 체크</h2>
-		<p class="sub-title {localeStore.locale}">
+		<h2 class="title {localeStore.locale} scroll-animate">참석 의사 체크</h2>
+		<p class="sub-title {localeStore.locale} scroll-animate">
 			{$_('rsvp.reply_by')}
 		</p>
 	</div>
