@@ -120,12 +120,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background-color: $bg-color-1;
+		background-color: $primary-color-light;
 		padding: 2em 1em 4em 1em;
 	}
 
 	h2.title {
-		color: $primary-color;
+		color: white !important;
 		text-align: center;
 		margin-bottom: 1em;
 
@@ -137,7 +137,7 @@
 
 	.wedding-date {
 		text-align: center;
-		color: $font-color-default;
+		color: black;
 		font-size: 1rem;
 		font-weight: 500;
 		margin-bottom: 1.5em;
@@ -158,7 +158,7 @@
 	.weekday {
 		text-align: center;
 		font-weight: 600;
-		color: $primary-color;
+		color: $white;
 		font-size: 0.9rem;
 		padding: 0.5em 0;
 	}
@@ -173,7 +173,7 @@
 		text-align: center;
 		padding: 0.8em 0;
 		font-size: 1rem;
-		color: $font-color-default;
+		color: black;
 		border-radius: 50%;
 		transition: all 0.3s ease;
 
@@ -190,8 +190,8 @@
 		}
 
 		&.wedding-day {
-			background-color: $primary-color;
-			color: white;
+			background-color: rgb(255, 255, 112);
+			color: $primary-color;
 			font-weight: 600;
 			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 			transform: scale(1.1);
@@ -232,7 +232,7 @@
 	.wedding-day-message {
 		margin-top: 1em;
 		font-size: 1rem;
-		color: $primary-color;
+		color: $white;
 		font-weight: 600;
 		text-align: center;
 	}
