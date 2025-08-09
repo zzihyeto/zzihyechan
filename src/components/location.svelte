@@ -24,33 +24,52 @@
 	}
 
 	function shareKakaoTalk() {
-		const url = window.location.href;
-		const text = '임찬교와 이지혜의 결혼식에 초대합니다!';
-		
-		// KakaoTalk 앱으로 직접 공유 (모바일에서만 작동)
-		if (navigator.share) {
-			navigator.share({
-				title: '임찬교와 이지혜의 결혼식에 초대합니다!',
-				text: text,
-				url: url
-			}).catch(() => {
-				// Web Share API가 지원되지 않거나 취소된 경우
-				// 클립보드에 복사하고 안내
-				navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
-					alert('청첩장 정보가 복사되었습니다. 카카오톡에서 붙여넣기 해주세요.');
-				}).catch(() => {
-					alert('복사에 실패했습니다.');
-				});
+		const url   = window.location.href;
+		const title = '임찬교와 이지혜의 결혼식에 초대합니다!';
+		const desc  = '2026년 1월 31일, 우리의 특별한 날에 함께해주세요.';
+		const image = 'https://emily-marries-anthony.com/preview.jpg'; // 가급적 1200x630 권장
+
+		// 1) Kakao 공식 공유 (PC/모바일 공통)
+		if (window.Kakao && window.Kakao.isInitialized()) {
+			try {
+			window.Kakao.Share.sendDefault({
+				objectType: 'feed',
+				content: {
+				title: title,
+				description: desc,
+				imageUrl: image,
+				link: { mobileWebUrl: url, webUrl: url }
+				},
+				buttons: [
+				{ title: '청첩장 보기', link: { mobileWebUrl: url, webUrl: url } }
+				]
 			});
-		} else {
-			// Web Share API가 지원되지 않는 경우
-			navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
-				alert('청첩장 정보가 복사되었습니다. 카카오톡에서 붙여넣기 해주세요.');
-			}).catch(() => {
-				alert('복사에 실패했습니다.');
-			});
+			return; // 성공 시 여기서 끝
+			} catch (e) {
+			console.warn('Kakao share failed, fallback:', e);
+			// 이어서 폴백으로 진행
+			}
 		}
-	}
+
+		// 2) Web Share API (모바일 브라우저/일부 데스크톱)
+		if (navigator.share) {
+			navigator.share({ title, text: desc, url })
+			.catch(() => {
+				// 3) 마지막 폴백: 클립보드
+				navigator.clipboard?.writeText(`${title}\n${url}`)
+				.then(() => alert('청첩장 주소가 복사되었습니다. 카카오톡에 붙여넣기 해주세요.'))
+				.catch(() => alert('공유가 막혔습니다. 주소를 직접 복사해 주세요.'));
+			});
+			return;
+		}
+
+		// 3) 클립보드 폴백
+		navigator.clipboard?.writeText(`${title}\n${url}`)
+			.then(() => alert('청첩장 주소가 복사되었습니다. 카카오톡에 붙여넣기 해주세요.'))
+			.catch(() => alert('공유가 막혔습니다. 주소를 직접 복사해 주세요.'));
+		}
+
+
 
 	function copyInvitationLink() {
 		const url = window.location.href;
@@ -172,11 +191,6 @@
 
 		&.kr {
 			@extend .title-font-kr;
-			letter-spacing: 1px;
-		}
-
-		&.en {
-			@extend .title-font-en;
 			letter-spacing: 1px;
 		}
 	}

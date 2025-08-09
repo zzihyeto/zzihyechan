@@ -9,10 +9,18 @@
 
 	let localeLoaded = $derived(!localeStore.isLoading && localeStore.locale);
 	let title = $state('');
+
 	onMount(() => {
 		document.body.classList.add('loaded');
 		if (localeLoaded) {
 			title = $_('meta.title');
+		}
+
+		// Kakao SDK 초기화
+		const key = import.meta.env.VITE_KAKAO_JS_KEY;
+		if (window.Kakao && !window.Kakao.isInitialized()) {
+			window.Kakao.init(key);
+			console.log('Kakao initialized:', window.Kakao.isInitialized());
 		}
 	});
 </script>
@@ -34,11 +42,11 @@
 	<meta property="og:image" content="https://emily-marries-anthony.com/preview.jpg" /> 
 	<meta property="og:url" content="https://zzihyechanwedding.netlify.app" />
 	<meta property="og:type" content="website" />
+
+	<!-- ✅ 여기에서 외부 SDK 스크립트 로드 -->
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" defer crossorigin="anonymous"></script>
 </svelte:head>
 
 {#if localeLoaded}
 	{@render children()}
 {/if}
-
-<style lang="scss">
-</style>

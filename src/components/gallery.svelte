@@ -120,10 +120,6 @@
 
 	h2.title {
 		text-align: center;
-		&.en {
-			@extend .title-font-en;
-			letter-spacing: 1px;
-		}
 
 		&.kr {
 			@extend .title-font-kr;
@@ -136,11 +132,6 @@
 		&.kr {
 			margin-top: 0.9em;
 			font-size: 0.9rem;
-		}
-
-		&.en {
-			margin-top: 0.5em;
-			font-size: 1.2rem;
 		}
 	}
 

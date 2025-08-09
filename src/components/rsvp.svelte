@@ -29,7 +29,7 @@
 		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
 		<h2 class="title {localeStore.locale} scroll-animate">참석 의사 체크</h2>
 		<p class="sub-title {localeStore.locale} scroll-animate">
-			{$_('rsvp.reply_by')}
+			{@html $_('rsvp.reply_by').replace(/\r?\n/g, '<br>')}
 		</p>
 	</div>
 
@@ -103,22 +103,12 @@
 			@extend .title-font-kr;
 			letter-spacing: 1px;
 		}
-
-		&.en {
-			@extend .title-font-en;
-			letter-spacing: 3px;
-		}
 	}
 
 	p.sub-title {
 		&.kr {
 			margin-top: 0.9em;
 			font-size: 0.9rem;
-		}
-
-		&.en {
-			margin-top: 0.5em;
-			font-size: 1.2rem;
 		}
 	}
 
@@ -190,10 +180,6 @@
 
 		&.kr {
 			font-weight: 600;
-		}
-
-		&.en {
-			font-weight: 700;
 		}
 	}
 

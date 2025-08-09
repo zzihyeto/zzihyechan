@@ -112,10 +112,6 @@
 			&.kr {
 				font-size: 1rem;
 			}
-
-			&.en {
-				font-size: 1.4rem;
-			}
 		}
 
 		span.event-date-and-time.kr {

@@ -76,11 +76,6 @@
 			@extend .title-font-kr;
 			margin-bottom: 0.4em;
 		}
-
-		&.en {
-			@extend .title-font-en;
-			margin-bottom: 0.2em;
-		}
 	}
 
 	.sub-title {
@@ -89,11 +84,6 @@
 			font-weight: 500;
 			font-size: 1rem;
 		}
-
-		&.en {
-			font-size: 1.3rem;
-			font-weight: 600;
-		}
 	}
 
 	p.letter {
@@ -101,10 +91,6 @@
 		&.kr {
 			line-height: 2.3em;
 			font-size: 0.9rem;
-		}
-		&.en {
-			line-height: 1.8em;
-			font-size: 1.2rem;
 		}
 	}
 
