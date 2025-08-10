@@ -84,6 +84,7 @@
 		transform: translateY(60px) scale(0.5);
 		transition: opacity 1s ease-out, transform 1s ease-out;
 		will-change: opacity, transform;
+		text-align: center;
 
 		&.animate-in {
 			opacity: 1;

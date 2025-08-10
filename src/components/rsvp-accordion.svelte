@@ -13,7 +13,7 @@
 	const items: Item[] = [
 		{ id: '1', title: $_('rsvp.accordion.parking') },
 		{ id: '2', title: $_('rsvp.accordion.flower') },
-		{ id : '3', title: $_('rsvp.accordion.account')}
+		{ id: '3', title: $_('rsvp.accordion.account')}
 	];
 
 	const accordion = new Accordion({

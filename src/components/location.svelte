@@ -132,11 +132,26 @@
 <img src={locationTopWave} class="location-top-wave" alt="" />
 <section class="location">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
-	<p class="venue">성남 혜성 감리 교회 3층 본당</p>
+	<p class="sub_title">성남 혜성 감리 교회 3층 본당</p>
+
+	<div>
+		<p class="venue {localeStore.locale}">
+			{@html $_('location.finish_letter').replace(/\r?\n/g, '<br>')}
+		</p>
+	</div>
+	
 	<div class="address-container">
-		<span class="address">경기 성남시 중원구 광명로 304</span>
-		<button class="copy-button" onclick={copyAddress}>
-			<Clipboard size="1.1em" />
+		<button class="copy-button" ><Clipboard size="1.0em" /></button>
+		<span class="address" onclick={copyAddress}>경기 성남시 중원구 광명로 304</span>
+	</div>
+
+
+	<div class="invitation-share">
+		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
+			카카오톡으로 청첩장 전하기
+		</button>
+		<button class="share-button copy-link" onclick={copyInvitationLink}>
+			청첩장 주소 복사하기
 		</button>
 	</div>
 	<div class="map-section">
@@ -150,15 +165,7 @@
 			</button>
 		</div>
 	</div>
-	
-	<div class="invitation-share">
-		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
-			카카오톡으로 청첩장 전하기
-		</button>
-		<button class="share-button copy-link" onclick={copyInvitationLink}>
-			청첩장 주소 복사하기
-		</button>
-	</div>
+
 	
 	<p class="copyright">© 2026. zzihyechan All rights reserved.</p>
 	<!-- <a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
@@ -169,12 +176,20 @@
 </section>
 
 <style lang="scss">
+	@font-face {
+		font-family: 'YESGothic-Regular';
+		src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESGothic-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}	
+
 	img.location-top-wave {
 		max-width: $content-max-width;
 		margin: auto;
 	}
 
 	section.location {
+		font-family: 'YESGothic-Regular';
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -185,6 +200,7 @@
 	}
 
 	h2.title {
+		font-family: 'YESGothic-Regular';
 		color: $primary-color;
 		text-align: center;
 		margin-bottom: 1em;
@@ -195,7 +211,17 @@
 		}
 	}
 
+	.sub_title{
+		font-family: 'YESGothic-Regular';
+		text-align: center;
+		color: $font-color-default;
+		font-size: 1rem;
+		font-weight: bold;
+		margin-bottom: 1.5em;
+	}
+
 	.venue {
+		font-family: 'YESGothic-Regular';
 		text-align: center;
 		color: $font-color-default;
 		font-size: 1rem;
@@ -204,6 +230,7 @@
 	}
 
 	.address-container {
+		font-family: 'YESGothic-Regular';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -235,6 +262,7 @@
 	}
 
 	.map-section {
+		font-family: 'YESGothic-Regular';
 		margin-top: 2em;
 		width: 100%;
 		height: 25em;
@@ -249,6 +277,7 @@
 	}
 
 	.map-buttons {
+		font-family: 'YESGothic-Regular';
 		background-color: rgba(255, 255, 255, 0.95);
 		padding: 1em;
 		display: flex;
@@ -263,6 +292,7 @@
 	}
 
 	.share-button {
+		font-family: 'YESGothic-Regular';
 		padding: 0.8em 1.5em;
 		border: none;
 		border-radius: 6px;
@@ -291,6 +321,7 @@
 	}
 
 	.invitation-share {
+		font-family: 'YESGothic-Regular';
 		margin-top: 2em;
 		display: flex;
 		flex-direction: column;
@@ -310,6 +341,7 @@
 	}
 
 	.share-button.copy-link {
+		font-family: 'YESGothic-Regular';
 		background-color: $primary-color;
 		color: white;
 		padding: 1em 1.5em;
@@ -328,12 +360,6 @@
 		color: $font-color-default;
 		opacity: 0.7;
 		margin-top: 2em;
-	}
-	
-	.github-icon {
-		margin-top: 0.2em;
-		color: $font-color-default;
-		cursor: pointer;
 	}
 
 	img.location-deco {
