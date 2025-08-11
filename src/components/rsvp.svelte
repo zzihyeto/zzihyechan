@@ -24,17 +24,17 @@
 	}
 </script>
 
-<section class="rsvp">
+<section class="rsvp backgroundpng">
 	<div class="header scroll-animate">
 		<img class="header-deco" src={rsvpDeco} alt="rsvp header deco" />
-		<h2 class="title {localeStore.locale} scroll-animate">참석 의사 체크</h2>
+		<h2 class="title {localeStore.locale} scroll-animate">참석 여부 전달</h2>
 		<p class="sub-title {localeStore.locale} scroll-animate">
 			{@html $_('rsvp.reply_by').replace(/\r?\n/g, '<br>')}
 		</p>
 	</div>
 
 	<button class="check-attendance-btn scroll-animate" on:click={() => showModal = true}>
-		참석의사체크하기
+		참석여부 전달하기
 	</button>
 	<div class="submit-message scroll-animate">
 		{#if form?.success}
@@ -69,6 +69,26 @@
 {/if}
 
 <style lang="scss">
+	section.backgroundpng {
+		position: relative;
+		/* overflow: hidden;  흐림 필터 영역이 밖으로 튀어나가지 않게 */
+	}
+
+	section.backgroundpng::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/src/lib/assets/background.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		opacity: 0.2; /* 투명도 */
+		/* opacity: 0.1;  투명도 */
+		 /* filter: blur(0.1px); 흐림 효과 */
+		 /* transform: scale(1.05); 블러 때문에 생기는 테두리 잘림 방지 */
+		z-index: -1;
+	}
+
 	section.rsvp {
 		padding: 4.5em 3.5em;
 	}
@@ -81,7 +101,7 @@
 
 	.scroll-animate {
 		opacity: 0;
-		transform: translateY(60px) scale(0.5);
+		transform: translateY(60px) scale(0.9);
 		transition: opacity 1s ease-out, transform 1s ease-out;
 		will-change: opacity, transform;
 		text-align: center;

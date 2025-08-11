@@ -88,7 +88,7 @@
 	];
 </script>
 
-<section class="gallery">
+<section class="gallery backgroundpng">
 	<div class="header">
 		<h2 class="title {localeStore.locale}">{$_('gallery.title')}</h2>
 		<p class="sub-title {localeStore.locale}">{$_('gallery.sub_title')}</p>
@@ -109,9 +109,28 @@
 </section>
 
 <style lang="scss">
+		section.backgroundpng {
+		position: relative;
+		/* overflow: hidden;  흐림 필터 영역이 밖으로 튀어나가지 않게 */
+	}
+
+	section.backgroundpng::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/src/lib/assets/background.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		opacity: 0.2; /* 투명도 */
+		 /* filter: blur(0.1px); 흐림 효과 */
+		 /* transform: scale(1.05); 블러 때문에 생기는 테두리 잘림 방지 */
+		z-index: -1;
+	}
+
 	section.gallery {
 		padding: 2em 2em 2em 2em;
-		background-color: $white;
+		background-color: rgba($white, 0.8); /* 80% 불투명 */
 	}
 
 	.header {

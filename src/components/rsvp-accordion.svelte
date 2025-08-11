@@ -75,36 +75,23 @@
 
 {#snippet accountContent()}
 	<div class="account-container">
+		{@html $_('rsvp.accordion.footer_letter1').replace(/\r?\n/g, '<br>')}
+		<br>
+		
+		{@html $_('rsvp.accordion.footer_letter2').replace(/\r?\n/g, '<br>')}
+		<br>
+		
 		<p>{$_('rsvp.accordion.account_number')}</p>
 		<p>{$_('rsvp.accordion.account_name')}</p>
+		
 		<button class="copy-btn" on:click={() => copyAccount()}>
 			{$_('rsvp.accordion.copy_account')}
 		</button>
 		{#if copied}
 			<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
 		{/if}
-		<br>
-		<p>{$_('rsvp.accordion.footer_letter1')}</p>
-		<p>{$_('rsvp.accordion.footer_letter2')}</p>
 	</div>
 {/snippet}
-
-<!--{#snippet accountContent()}
-	<p class="account-title">{$_('rsvp.accordion.account')}</p>
-	<div class="account-container">
-		<p class="account_number">{$_('rsvp.accordion.account_number')}</p>
-	</div>
-	<p class="account_name">{$_('rsvp.accordion.account_name')}</p>
-	<p class="footer_letter">
-		{$_('rsvp.accordion.footer_letter')}
-	</p>
-	<button class="copy-btn" on:click={() => copyAccount()}>
-		{$_('rsvp.accordion.copy_account')}
-	</button>
-	{#if copied}
-		<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
-	{/if}
-{/snippet}-->
 
 <div class="accordion-root" {...accordion.root}>
 	{@render accordionItem(parkingItem, parkingContent)}
@@ -122,7 +109,7 @@
 	}
 
 	.heading {
-		border-top: 1px solid $primary-color-light;
+		border-top: 1px solid rgb(48, 47, 47);
 		position: relative;
 	}
 

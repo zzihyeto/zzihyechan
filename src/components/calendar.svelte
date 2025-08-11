@@ -37,7 +37,7 @@
 	});
 </script>
 
-<section class="calendar">
+<section class="calendar backgroundpng">
 	<h2 class="title en">January 2026</h2>
 	<p class="wedding-date">2026년 01월 31일 토요일 | 오후 12시</p>
 	<div class="calendar-grid">
@@ -115,12 +115,31 @@
 </section>
 
 <style lang="scss">
+	section.backgroundpng {
+		position: relative;
+		/* overflow: hidden;  흐림 필터 영역이 밖으로 튀어나가지 않게 */
+	}
+
+	section.backgroundpng::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/src/lib/assets/background.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		opacity: 0.9; /* 투명도 */
+		 /* filter: blur(0.1px); 흐림 효과 */
+		 /* transform: scale(1.05); 블러 때문에 생기는 테두리 잘림 방지 */
+		z-index: -1;
+	}
+
 	section.calendar {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background-color: $primary-color-light;
+		background-color: rgba($primary-color-light, 0.8); /* 80% 불투명 */
 		padding: 2em 1em 4em 1em;
 	}
 
@@ -173,7 +192,7 @@
 		text-align: center;
 		padding: 0.8em 0;
 		font-size: 1rem;
-		color: black;
+		color: $white;
 		border-radius: 50%;
 		transition: all 0.3s ease;
 

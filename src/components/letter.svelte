@@ -2,7 +2,7 @@
 	import letterBottom from '$lib/assets/letter-bottom.webp';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
-	import letterDeco from '$lib/assets/letter-deco.svg';
+	import letterDeco from '$lib/assets/letter-deco.png';
 
 	const nameDivider = `
     <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +10,7 @@
     </svg>`;
 </script>
 
-<section class="letter">
+<section class="letter backgroundpng">
 	<div class="header scroll-animate">
 		<img class="header-deco" src={letterDeco} alt="letter header deco" />
 		<h2 class="title {localeStore.locale}">{$_('letter.date')}</h2>
@@ -40,6 +40,23 @@
 </section>
 
 <style lang="scss">
+	section.backgroundpng {
+		position: relative;
+	}
+
+	section.backgroundpng::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/src/lib/assets/background.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		opacity: 0.2; /* 투명도 */
+		background-size: cover;
+		z-index: -1;
+	}
+
+
 	section.letter {
 		padding: 4.5em 3.5em 3em 3.5em;
 	}
@@ -53,7 +70,7 @@
 
 	.scroll-animate {
 		opacity: 0;
-		transform: translateY(60px) scale(0.5);
+		transform: translateY(60px) scale(0.9);
 		transition: opacity 1s ease-out, transform 1s ease-out;
 		will-change: opacity, transform;
 
@@ -65,7 +82,7 @@
 
 	img.header-deco {
 		width: 12em;
-		margin-bottom: 0.8em;
+		margin-bottom: 0.2em;
 	}
 
 	.title {

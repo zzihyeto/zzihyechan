@@ -130,7 +130,7 @@
 </script>
 
 <img src={locationTopWave} class="location-top-wave" alt="" />
-<section class="location">
+<section class="location backgroundpng">
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
 	<p class="sub_title">성남 혜성 감리 교회 3층 본당</p>
 
@@ -176,6 +176,7 @@
 </section>
 
 <style lang="scss">
+	
 	@font-face {
 		font-family: 'YESGothic-Regular';
 		src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESGothic-Regular.woff') format('woff');
@@ -188,6 +189,26 @@
 		margin: auto;
 	}
 
+	section.backgroundpng {
+		position: relative;
+		/* overflow: hidden;  흐림 필터 영역이 밖으로 튀어나가지 않게 */
+	}
+
+	section.backgroundpng::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/src/lib/assets/background.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		opacity: 0.2; /* 투명도 */
+		/* opacity: 0.1;  투명도 */
+		 /* filter: blur(0.1px); 흐림 효과 */
+		 /* transform: scale(1.05); 블러 때문에 생기는 테두리 잘림 방지 */
+		z-index: -1;
+	}
+
 	section.location {
 		font-family: 'YESGothic-Regular';
 		position: relative;
@@ -195,7 +216,7 @@
 		flex-direction: column;
 		align-items: center;
 		position: relative;
-		background-color: $bg-color-1;
+		/** background-color: $bg-color-1;**/
 		padding: 1em 2em 1em 2em;
 	}
 
