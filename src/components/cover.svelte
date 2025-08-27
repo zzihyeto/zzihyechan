@@ -21,7 +21,7 @@
 		<Confetti
 			x={[-5, 5]}
 			y={[0, 0.1]}
-			colorArray={['#588adb', '#f5e298', '#fff', '#9aa3f5']}
+			colorArray={['#f5e298', '#fff', '#90ee90', '#f5f5dc', '#ffa500']}
 			delay={[500, 2000]}
 			infinite
 			duration={5000}
@@ -29,12 +29,13 @@
 			fallDistance={`${sectionHeight}px`}
 		/>
 	</div>
-
+<!-- 
 	<div class="names-kr-box">
 		<span class="names kr">임찬교</span>
 		<span class="names kr">그리고</span>
 		<span class="names kr">이지혜</span>
 	</div>
+	-->
 
 	<div class="cover-title-container">
 		<div class="names-en-box">
@@ -51,7 +52,7 @@
 <style lang="scss">
 	section.cover {
 		position: relative;
-		background-image: url('/src/lib/assets/cover.webp');
+		background-image: url('/src/lib/assets/cover.jpeg');
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: cover;
@@ -64,16 +65,18 @@
 		width: 100%;
 		overflow: hidden;
 		pointer-events: none;
+		z-index: 2;
 	}
 	.names-kr-box {
 		position: absolute;
 		top: 3em;
 		left: 4em;
+		z-index: 2;
 
 		span.names {
-			color: #616161;
+			color: black;
 			display: block;
-			font-size: 1rem;
+			font-size: 1.2rem;
 			letter-spacing: 0.8em;
 			line-height: 2;
 		}
@@ -83,6 +86,7 @@
 		width: 100%;
 		position: absolute;
 		bottom: 1.5em;
+		z-index: 2;
 	}
 
 	.names-en-box {
@@ -94,7 +98,7 @@
 			display: block;
 			color: $white;
 			word-spacing: 5px;
-			font-size: 2.2rem;
+			font-size: 3rem;
 		}
 	}
 
@@ -110,7 +114,7 @@
 			color: $white;
 
 			&.kr {
-				font-size: 1rem;
+				font-size: 1.2rem;
 			}
 		}
 

@@ -26,8 +26,7 @@
 
 	let copied = $state(false);
 
-	function copyAccount() {
-		const accountNumber = '기업 54104699902029';
+	function copyAccount(accountNumber: string) {
 		navigator.clipboard.writeText(accountNumber).then(() => {
 			copied = true;
 			setTimeout(() => {
@@ -78,15 +77,17 @@
 		{@html $_('rsvp.accordion.footer_letter1').replace(/\r?\n/g, '<br>')}
 		<br>
 		
-		{@html $_('rsvp.accordion.footer_letter2').replace(/\r?\n/g, '<br>')}
-		<br>
-		
 		<p>{$_('rsvp.accordion.account_number')}</p>
 		<p>{$_('rsvp.accordion.account_name')}</p>
-		
 		<button class="copy-btn" on:click={() => copyAccount()}>
 			{$_('rsvp.accordion.copy_account')}
 		</button>
+		<br>
+
+		{@html $_('rsvp.accordion.footer_letter2').replace(/\r?\n/g, '<br>')}
+		<br>
+		
+
 		{#if copied}
 			<p class="copied-message">{$_('rsvp.accordion.account_copied')}</p>
 		{/if}

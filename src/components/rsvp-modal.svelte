@@ -33,7 +33,7 @@
 		</button>
 		
 		<h2 class="modal-title">참석 의사 체크하기</h2>
-		<p class="modal-subtitle">한 분 한 분을 소중히 모실 수 있도록 참석 의사를 전해주시면 감사하겠습니다.</p>
+		<p class="modal-subtitle">한 분 한 분을 소중히 모실 수 있도록 참석 의사를 전달 부탁드립니다.</p>
 		
 		<form class="modal-form" method="POST" action="?/rsvp" use:enhance={() => {
 			return async ({ result }) => {
@@ -125,7 +125,7 @@
 			</div>
 
 			<button type="submit" class="submit-button" disabled={submitting}>
-				{submitting ? '전송 중...' : '참석 의사 체크하기'}
+				{submitting ? '전송 중...' : '참석 의사 보내기'}
 			</button>
 		</form>
 	</div>

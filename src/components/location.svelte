@@ -58,7 +58,7 @@
 				// 3) 마지막 폴백: 클립보드
 				navigator.clipboard?.writeText(`${title}\n${url}`)
 				.then(() => alert('청첩장 주소가 복사되었습니다. 카카오톡에 붙여넣기 해주세요.'))
-				.catch(() => alert('공유가 막혔습니다. 주소를 직접 복사해 주세요.'));
+				.catch(() => alert('취소되었습니다. 주소를 직접 복사해 주세요.'));
 			});
 			return;
 		}
