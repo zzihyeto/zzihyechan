@@ -1,6 +1,5 @@
 <script lang="ts">
 	import locationTopWave from '$lib/assets/location-top-wave.svg';
-	import locationDeco from '$lib/assets/location-deco.svg';
 	import { _ } from 'svelte-i18n';
 	import { localeStore } from '../i18n.svelte';
 	import { Clipboard, Github } from '@lucide/svelte';
@@ -134,26 +133,11 @@
 	<h2 class="title {localeStore.locale}">{$_('location.title')}</h2>
 	<p class="sub_title">성남 혜성 감리 교회 3층 본당</p>
 
-	<div>
-		<p class="venue {localeStore.locale}">
-			{@html $_('location.finish_letter').replace(/\r?\n/g, '<br>')}
-		</p>
-	</div>
-	
 	<div class="address-container">
 		<button class="copy-button" ><Clipboard size="1.0em" /></button>
 		<span class="address" onclick={copyAddress}>경기 성남시 중원구 광명로 304</span>
 	</div>
 
-
-	<div class="invitation-share">
-		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
-			카카오톡으로 청첩장 전하기
-		</button>
-		<button class="share-button copy-link" onclick={copyInvitationLink}>
-			청첩장 주소 복사하기
-		</button>
-	</div>
 	<div class="map-section">
 		<div id="naver-map" class="naver-map-wide"></div>
 		<div class="map-buttons">
@@ -166,13 +150,55 @@
 		</div>
 	</div>
 
-	
+	<div class="transportation-container">
+		<h3 class="transportation-title">{$_('location.transportation.title')}</h3>
+		
+		<div class="transport-method">
+			<div class="transport-icon">🚇</div>
+			<div class="transport-info">
+				<h4>{$_('location.transportation.subway.title')}</h4>
+				<p class="route">{$_('location.transportation.subway.line')}</p>
+				<p class="walk-time">+ {$_('location.transportation.subway.time')}</p>
+			</div>
+		</div>
+
+		<div class="transport-method">
+			<div class="transport-icon">🚌</div>
+			<div class="transport-info">
+				<h4>{$_('location.transportation.bus.title')}</h4>
+				
+				<div class="bus-stop">
+					<p class="stop-name">📍 {$_('location.transportation.bus.stop1.name')}</p>
+					<p class="route">{$_('location.transportation.bus.stop1.routes')}</p>
+					<p class="walk-time">+ {$_('location.transportation.bus.stop1.time')}</p>
+				</div>
+				
+				<div class="bus-stop">
+					<p class="stop-name">📍 {$_('location.transportation.bus.stop2.name')}</p>
+					<p class="route">{$_('location.transportation.bus.stop2.routes')}</p>
+					<p class="walk-time">+ {$_('location.transportation.bus.stop2.time')}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="finish-letter-container">
+		<p class="venue {localeStore.locale}">
+			{@html $_('location.finish_letter').replace(/\r?\n/g, '<br>')}
+		</p>
+	</div>
+
+	<div class="invitation-share">
+		<button class="share-button kakao-talk" onclick={shareKakaoTalk}>
+			카카오톡으로 청첩장 전하기
+		</button>
+		<button class="share-button copy-link" onclick={copyInvitationLink}>
+			청첩장 주소 복사하기
+		</button>
+	</div>
+
 	<p class="copyright">© 2026. zzihyechan All rights reserved.</p>
-	<!-- <a class="github-icon" href="https://github.com/anthopark/our-wedding-invitation" target="_blank"
-	 	><Github size="1.1em" strokeWidth={1} /></a
-	> 
-	<img class="location-deco" src={locationDeco} alt="" />
-	-->
+
 </section>
 
 <style lang="scss">
@@ -376,16 +402,95 @@
 		font-size: 1rem;
 	}
 	
+	.transportation-container {
+		margin: 2em 0;
+		padding: 1.5em;
+		background-color: #f8f9fa;
+		border-radius: 12px;
+		border: 2px solid #e9ecef;
+	}
+
+	.transportation-title {
+		text-align: center;
+		color: $primary-color;
+		font-size: 1.3rem;
+		margin-bottom: 1.5em;
+		font-weight: 600;
+	}
+
+	.transport-method {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 1.5em;
+		padding: 1em;
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.transport-icon {
+		font-size: 2em;
+		margin-right: 1em;
+		flex-shrink: 0;
+	}
+
+	.transport-info {
+		flex: 1;
+
+		h4 {
+			color: $primary-color;
+			font-size: 1.1rem;
+			margin-bottom: 0.5em;
+			font-weight: 600;
+		}
+
+		.route {
+			color: $font-color-default;
+			font-size: 0.9rem;
+			line-height: 1.4;
+			margin-bottom: 0.3em;
+		}
+
+		.walk-time {
+			color: $green-1;
+			font-size: 0.85rem;
+			font-weight: 500;
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.bus-stop {
+		margin-bottom: 1em;
+		padding: 0.8em;
+		background-color: #f8f9fa;
+		border-radius: 6px;
+		border-left: 3px solid $primary-color-light;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.stop-name {
+			color: $primary-color;
+			font-weight: 600;
+			font-size: 0.95rem;
+			margin-bottom: 0.3em;
+		}
+	}
+
+	.finish-letter-container {
+		margin-top: 2em;
+		text-align: center;
+	}
+
 	p.copyright {
 		font-size: 0.8rem;
 		color: $font-color-default;
 		opacity: 0.7;
 		margin-top: 2em;
-	}
-
-	img.location-deco {
-		position: absolute;
-		bottom: 2.5em;
-		right: 1.5em;
 	}
 </style>

@@ -77,9 +77,18 @@
 		{@html $_('rsvp.accordion.footer_letter1').replace(/\r?\n/g, '<br>')}
 		<br>
 		
+		<!-- 기업은행 계좌 -->
 		<p>{$_('rsvp.accordion.account_number')}</p>
 		<p>{$_('rsvp.accordion.account_name')}</p>
-		<button class="copy-btn" on:click={() => copyAccount()}>
+		<button class="copy-btn" onclick={() => copyAccount($_('rsvp.accordion.account_number').split(' ').slice(1).join(' '))}>
+			{$_('rsvp.accordion.copy_account')}
+		</button>
+		<br>
+
+		<!-- 카카오뱅크 계좌 -->
+		<p>{$_('rsvp.accordion.account_number2')}</p>
+		<p>{$_('rsvp.accordion.account_name2')}</p>
+		<button class="copy-btn" onclick={() => copyAccount($_('rsvp.accordion.account_number2').split(' ').slice(1).join(' '))}>
 			{$_('rsvp.accordion.copy_account')}
 		</button>
 		<br>

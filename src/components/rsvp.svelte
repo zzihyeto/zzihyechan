@@ -115,6 +115,7 @@
 	img.header-deco {
 		width: 4.5em;
 		margin-bottom: 0.8em;
+		color: #808080;
 	}
 
 	h2.title {
