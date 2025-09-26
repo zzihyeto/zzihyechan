@@ -1,13 +1,13 @@
 <script lang="ts">
-	import photo2 from '$lib/assets/gallery/2.webp';
-	import photo3 from '$lib/assets/gallery/3.webp';
-	import photo4 from '$lib/assets/gallery/4.webp';
-	import photo5 from '$lib/assets/gallery/5.webp';
-	import photo6 from '$lib/assets/gallery/6.webp';
-	import photo7 from '$lib/assets/gallery/7.webp';
+	import photo2 from '$lib/assets/gallery/7.webp';
+	import photo3 from '$lib/assets/gallery/black_full_2.jpg';
+	import photo4 from '$lib/assets/gallery/black_half_1.jpg';
+	import photo5 from '$lib/assets/gallery/10.webp';
+	import photo6 from '$lib/assets/gallery/white_half_1.jpg';
+	import photo7 from '$lib/assets/gallery/black_full_1.jpg';
 	import photo8 from '$lib/assets/gallery/8.webp';
 	import photo9 from '$lib/assets/gallery/9.webp';
-	import photo10 from '$lib/assets/gallery/10.webp';
+	import photo10 from '$lib/assets/gallery/white_full_1.jpg';
 	import photo11 from '$lib/assets/gallery/11.webp';
 
 	import PhotoSwipeLightBox from 'photoswipe/lightbox';
@@ -37,8 +37,8 @@
 	const photos = [
 		{
 			src: photo10,
-			width: 1200,
-			height: 1800
+			width: 2538,
+			height: 3554
 		},
 		{
 			src: photo2,
@@ -47,13 +47,13 @@
 		},
 		{
 			src: photo3,
-			width: 1200,
-			height: 1800
+			width: 3244,
+			height: 4541
 		},
 		{
 			src: photo4,
-			width: 2000,
-			height: 1333
+			width: 3503,
+			height: 4905
 		},
 		{
 			src: photo5,
@@ -62,13 +62,13 @@
 		},
 		{
 			src: photo6,
-			width: 2000,
-			height: 1333
+			width: 3123,
+			height: 4372
 		},
 		{
 			src: photo7,
-			width: 1200,
-			height: 1800
+			width: 3244,
+			height: 4541
 		},
 		{
 			src: photo8,
