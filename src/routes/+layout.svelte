@@ -39,8 +39,8 @@
 		href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 	/>
 	<meta property="og:title" content="ChanGyo & JiHye's Wedding" /> 
-	<meta property="og:description" content="Please join us on our most special day!" /> 
-	<meta property="og:image" content="./lib/assets/gallery/black_half_1.jpg" /> 
+	<meta property="og:description" content="26.01.31 (토) 오후 12시 함께 해주세요!" /> 
+	<meta property="og:image" content="./src/lib/assets/gallery/black_half_1.jpg" /> 
 	<meta property="og:url" content="https://zzihyechanwedding.netlify.app" />
 	<meta property="og:type" content="website" />
 
