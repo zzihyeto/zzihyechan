@@ -27,7 +27,7 @@
 		},
 		"accordion": {
 			"parking" :"주차",
-			"parking_letter1" : "맨밑 지하1층과 지상1층에 있습니다",
+			"parking_letter1" : "맨 밑 지하 1층과 지상 1층에 있습니다",
 			"parking_letter2" : "만차일 경우,",
 			"parking_letter3" : "공용 주차장 안내하도록 하겠습니다",
 			"flower": "화환",
