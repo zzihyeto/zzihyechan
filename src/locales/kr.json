@@ -36,10 +36,14 @@
 			"account": "마음 전하실 곳",
 			"account_number": "기업 54104699902029",
 			"account_name": "이지혜",
+			"account_number3": "우리은행 1002531456156",
+			"account_name3": "이찬욱",
 			"account_number2" : "카카오뱅크 3333083505464",
 			"account_name2" : "임찬교",
+			"account_number4" : "우리은행 1002550111442",
+			"account_name4" : "고수기",
 			"footer_letter1": "멀리서도 축하의 마음을\n전하고 싶으신 분들을 위해\n계좌번호를 안내드립니다\n",
-			"footer_letter2": "소중한 축하를 보내주셔서 감사드리며,\n따뜻한 마음에 깊이 감사드립니다\n",
+			"footer_letter2": "아낌없는 축하와\n따뜻한 마음에 깊이 감사드립니다\n",
 			"copy_account": "계좌번호 복사",
 			"account_copied": "계좌번호가 복사되었습니다"
 		}
